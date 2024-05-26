@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+        fontFamily: {
+          myFont: '"Varela Round"'
+        },
+        colors: {
+          "light-brown": "#835938",
+          "brown": "#40260A",
+        },
+      },
   },
   plugins: [],
 }
