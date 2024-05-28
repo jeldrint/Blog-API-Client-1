@@ -23,7 +23,7 @@ const Blog = ({data}) => {
                             <p className="whitespace-pre-wrap text-sm md:text-[15px] lg:text-base">{post.body}</p>
                             <br />
                             <div>
-                                <button className="text-sm rounded-md p-[6px] bg-sky-500 hover:bg-sky-600 text-neutral-50">ADD A COMMENT</button>
+                                <button className="text-sm rounded-md p-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">ADD A COMMENT</button>
                             </div>
                         </div>
                 )
