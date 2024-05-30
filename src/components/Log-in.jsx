@@ -17,15 +17,16 @@ const Login = () => {
         e.preventDefault();
     }
 
-    const handleClick = () => {
-
+    const handleSubmit = (e) => {
+        fetchLogin(userData)
+        e.preventDefault();
     }
 
     return (
         <div className="m-8">
             <p className="font-myFont text-3xl">Please Log-in. </p>
             <br />
-            <form method="" action="POST">
+            <form onSubmit={handleSubmit}>
                 <div className="display: inline-block mr-3">
                     <label htmlFor="username">Username: </label>
                     <input name="username" type="text" required onChange={handleChange} className="border border-black rounded-sm px-1 py-[2px]" />

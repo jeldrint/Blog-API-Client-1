@@ -20,31 +20,25 @@ export const fetchPublicPage = (setData, setError, setLoading) => {
     },[]) 
 }
 
-export const fetchLogin = ({userdata}) => {
-    console.log(userdata)
-    useEffect (() => {
-        const fetchData = async () => {
-            try{
-                const data = await fetch('/techy-blog/api/login',{
-                    method: 'POST',
+export const fetchLogin = (userdata) => {
+   //console.log(userdata)
+    try{
+        fetch('/techy-blog/api/log-in',{
+            method: "POST",
 
-                    body: JSON.stringify({
-                        username: 'jeldrint',
-                        password: 'sample123'
-                    }),
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-                    headers: {
-                        "Content-Type": "application/json; charset=UTF-8"
-                    }
-                })
-                const response = await data.json();
-                console.log(response);
-            }catch(error){
-                console.log('error in fetch login')
-            }finally{
-                console.log('finally in fetch login')
-            }
-        }
-        fetchData();
-    },[])
+            body: JSON.stringify({
+                username: userdata.username,
+                password: userdata.password,
+            }),
+
+        })
+    }catch(error){
+        console.log('error in fetch login')
+    }finally{
+        console.log('finally in fetch login')
+    }
 }
