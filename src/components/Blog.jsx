@@ -15,8 +15,8 @@ const Blog = ({data}) => {
                             <div>
                                 <div className="font-bold tracking-wide text-xl md:text-2xl lg:text-3xl xl:text-4xl ">{post.title}</div>
                                 <div className="text-xs lg:text-sm flex-col mt-[5px]">
-                                    <div className='flex gap-x-[40px]'><span>BY: <strong><i>{post.userId.user_name}</i></strong></span> <span>Created: {timestamp}</span></div>
-                                    { post.isUpdated && <div className='flex gap-x-4'><span>MODIFIED BY: <strong><i>{post.userIdUpdated.user_name}</i></strong></span> <span>Created: {updatedTimestamp}</span></div> }
+                                    <div className='flex gap-x-[50px]'><span>BY: <strong><i>{post.userId.first_name} {post.userId.family_name}</i></strong></span> <span>Created: {timestamp}</span></div>
+                                    { post.isUpdated && <div className='flex gap-x-4'><span>MODIFIED BY: <strong><i>{post.userIdUpdated.first_name} {post.userIdUpdated.family_name}</i></strong></span> <span>Created: {updatedTimestamp}</span></div> }
                                 </div>
                             </div>
                             <br />
