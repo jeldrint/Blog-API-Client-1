@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export const fetchPublicPage = (setData, setError, setLoading) => {
+export const fetchMainData = (setData, setError, setLoading) => {
 
     useEffect(() => {
       const fetchData = async () => {
