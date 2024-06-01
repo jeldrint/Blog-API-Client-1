@@ -1,15 +1,12 @@
 import { Link } from "react-router-dom"
 import { fetchLogin } from "../utils"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { Navigate } from "react-router-dom"
 
-const Login = ({data}) => {
+const Login = ({loginStatus, setLoginStatus}) => {
     const [userData, setUserData] = useState({username: '', password: ''})
-    const navigate = useNavigate();
-
     const [loginError, setLoginError] = useState(null);
     const [loginLoading, setLoginLoading] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState('');
 
     const handleChange = (e) => {
         switch(e.target.name){
@@ -24,14 +21,14 @@ const Login = ({data}) => {
     }
 
     const handleSubmit = (e) => {
-        fetchLogin(userData, setLoginError, setLoginLoading, setIsLoggedIn);
+        fetchLogin(userData, setLoginError, setLoginLoading, setLoginStatus);
         e.preventDefault();
     }
     if(loginError) {return <p>Login error. Please contact customer support. </p>}
-    if(loginLoading) {return <p>Verifying user, please wait... </p>}
 
     return (
         <div className="m-8">
+            {loginStatus === 'success' && <Navigate to='/' />}
             <p className="font-myFont text-3xl">Please Log-in. </p>
             <br />
             <form onSubmit={handleSubmit}>
@@ -46,7 +43,10 @@ const Login = ({data}) => {
                 <button className="cursor-pointer text-sm rounded py-1 px-3  transition-colors bg-gray-700 hover:bg-gray-900 active:bg-gray-500 text-neutral-50">Log-in</button>
             </form>
             <br />
-            <p className={isLoggedIn==='failed' ? "text-red-600" : "text-transparent"} >Your username or password is incorrect.</p>
+            { loginLoading ?
+                <p>Verifying user, please wait... </p> : 
+                <p className={loginStatus==='failed' ? "text-red-600" : "hidden"} >Your username or password is incorrect.</p>
+            }
             <br />
             <p>No account yet? <Link to='/techy-blog/sign-up' className="underline font-bold transition duration-150 hover:text-sky-600 ">Sign-up!</Link></p>
             <br />

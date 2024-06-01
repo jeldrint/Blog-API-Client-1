@@ -20,7 +20,7 @@ export const fetchMainData = (setData, setError, setLoading) => {
     },[]) 
 }
 
-export const fetchLogin = (userData, setLoginError, setLoginLoading, setIsLoggedIn) => {
+export const fetchLogin = (userData, setLoginError, setLoginLoading, setLoginStatus) => {
     setLoginLoading(true);
 
     const fetchData = async () => {
@@ -39,7 +39,7 @@ export const fetchLogin = (userData, setLoginError, setLoginLoading, setIsLogged
     
             })
             const response = await data.json();
-            setIsLoggedIn(response.login)
+            setLoginStatus(response.login)
 
         }catch(error){
             console.log(error)
