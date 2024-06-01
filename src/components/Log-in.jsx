@@ -7,9 +7,9 @@ const Login = ({data}) => {
     const [userData, setUserData] = useState({username: '', password: ''})
     const navigate = useNavigate();
 
-    const [loginLoading, setLoginLoading] = useState(false);
     const [loginError, setLoginError] = useState(null);
-    const [samData, setSamData] = useState('');
+    const [loginLoading, setLoginLoading] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState('');
 
     const handleChange = (e) => {
         switch(e.target.name){
@@ -24,11 +24,11 @@ const Login = ({data}) => {
     }
 
     const handleSubmit = (e) => {
-        fetchLogin(userData, setLoginError, setSamData, setLoginLoading);
+        fetchLogin(userData, setLoginError, setLoginLoading, setIsLoggedIn);
         e.preventDefault();
     }
-    if(loginLoading) {return <p>Verifying user, please wait... </p>}
     if(loginError) {return <p>Login error. Please contact customer support. </p>}
+    if(loginLoading) {return <p>Verifying user, please wait... </p>}
 
     return (
         <div className="m-8">
@@ -46,7 +46,7 @@ const Login = ({data}) => {
                 <button className="cursor-pointer text-sm rounded py-1 px-3  transition-colors bg-gray-700 hover:bg-gray-900 active:bg-gray-500 text-neutral-50">Log-in</button>
             </form>
             <br />
-            <p className="text-red-600 hidden">Your username or password is incorrect.</p>
+            <p className={isLoggedIn==='failed' ? "text-red-600" : "text-transparent"} >Your username or password is incorrect.</p>
             <br />
             <p>No account yet? <Link to='/techy-blog/sign-up' className="underline font-bold transition duration-150 hover:text-sky-600 ">Sign-up!</Link></p>
             <br />

@@ -20,30 +20,34 @@ export const fetchMainData = (setData, setError, setLoading) => {
     },[]) 
 }
 
-export const fetchLogin = (userdata, setLoginError,setSamData, setLoginLoading) => {
+export const fetchLogin = (userData, setLoginError, setLoginLoading, setIsLoggedIn) => {
     setLoginLoading(true);
-    try{
-        fetch('/techy-blog/api/log-in',{
-            method: "POST",
 
-            headers: {
-                "Content-Type": "application/json"
-            },
+    const fetchData = async () => {
+        try{
+            const data = await fetch('/techy-blog/api/log-in',{
+                method: "POST",
 
-            body: JSON.stringify({
-                username: userdata.username,
-                password: userdata.password,
-            }),
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    username: userData.username,
+                    password: userData.password,
+                }),
+    
+            })
+            const response = await data.json();
+            setIsLoggedIn(response.login)
 
-        }).then((response) => {
-            console.log(response)
-            setSamData(response);
+        }catch(error){
+            console.log(error)
+            setLoginError(error);
+        }finally{
+            console.log('finally in fetch login')
             setLoginLoading(false);
-        }).then((body) => {
-            console.log(body)
-        })
-    }catch(error){
-        console.log('error in fetch login')
-        setLoginError(error);
+        }
     }
+    fetchData();
 }
