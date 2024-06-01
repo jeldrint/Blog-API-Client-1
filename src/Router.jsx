@@ -6,8 +6,8 @@ import { useState } from 'react';
 
 const Router = () => {
     const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [errMainData, setErrMainData] = useState(null);
+    const [loadingMainData, setLoadingMainData] = useState(true);
 
     const router = createBrowserRouter([
         {
@@ -16,7 +16,7 @@ const Router = () => {
         },
         {
             path: '/techy-blog',
-            element: <App data={data} error={error} loading={loading} setData={setData} setError={setError} setLoading={setLoading} />,
+            element: <App data={data} error={errMainData} loading={loadingMainData} setData={setData} setError={setErrMainData} setLoading={setLoadingMainData} />,
         },
         {
             path: '/techy-blog/log-in',

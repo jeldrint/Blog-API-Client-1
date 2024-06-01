@@ -9,10 +9,10 @@ export const fetchMainData = (setData, setError, setLoading) => {
             const response = await data.json();
             setData(response);
         }catch(error){
-            console.log('error?')
+            console.log('error main data')
             setError(error)
         }finally{
-            console.log('finally?')
+            console.log('finally main data')
             setLoading(false);
         }
       }
@@ -20,8 +20,8 @@ export const fetchMainData = (setData, setError, setLoading) => {
     },[]) 
 }
 
-export const fetchLogin = (userdata) => {
-   //console.log(userdata)
+export const fetchLogin = (userdata, setLoginError,setSamData, setLoginLoading) => {
+    setLoginLoading(true);
     try{
         fetch('/techy-blog/api/log-in',{
             method: "POST",
@@ -35,10 +35,15 @@ export const fetchLogin = (userdata) => {
                 password: userdata.password,
             }),
 
+        }).then((response) => {
+            console.log(response)
+            setSamData(response);
+            setLoginLoading(false);
+        }).then((body) => {
+            console.log(body)
         })
     }catch(error){
         console.log('error in fetch login')
-    }finally{
-        console.log('finally in fetch login')
+        setLoginError(error);
     }
 }

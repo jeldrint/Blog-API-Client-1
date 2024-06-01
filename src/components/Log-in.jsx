@@ -7,6 +7,10 @@ const Login = ({data}) => {
     const [userData, setUserData] = useState({username: '', password: ''})
     const navigate = useNavigate();
 
+    const [loginLoading, setLoginLoading] = useState(false);
+    const [loginError, setLoginError] = useState(null);
+    const [samData, setSamData] = useState('');
+
     const handleChange = (e) => {
         switch(e.target.name){
             case 'username':
@@ -20,10 +24,11 @@ const Login = ({data}) => {
     }
 
     const handleSubmit = (e) => {
-        fetchLogin(userData)
-
+        fetchLogin(userData, setLoginError, setSamData, setLoginLoading);
         e.preventDefault();
     }
+    if(loginLoading) {return <p>Verifying user, please wait... </p>}
+    if(loginError) {return <p>Login error. Please contact customer support. </p>}
 
     return (
         <div className="m-8">
@@ -41,7 +46,7 @@ const Login = ({data}) => {
                 <button className="cursor-pointer text-sm rounded py-1 px-3  transition-colors bg-gray-700 hover:bg-gray-900 active:bg-gray-500 text-neutral-50">Log-in</button>
             </form>
             <br />
-            <p className={data.user ? "text-red-600 inline-block" : "text-red-600 hidden" }>Your username or password is incorrect.</p>
+            <p className="text-red-600 hidden">Your username or password is incorrect.</p>
             <br />
             <p>No account yet? <Link to='/techy-blog/sign-up' className="underline font-bold transition duration-150 hover:text-sky-600 ">Sign-up!</Link></p>
             <br />
