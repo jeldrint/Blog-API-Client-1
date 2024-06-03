@@ -28,7 +28,7 @@ const Login = ({loginStatus, setLoginStatus}) => {
 
     return (
         <div className="m-8">
-            {loginStatus === 'success' && <Navigate to='/' />}
+            {loginStatus === 'logged in' && <Navigate to='/' />}
             <p className="font-myFont text-3xl">Please Log-in. </p>
             <br />
             <form onSubmit={handleSubmit}>
@@ -45,7 +45,7 @@ const Login = ({loginStatus, setLoginStatus}) => {
             <br />
             { loginLoading ?
                 <p>Verifying user, please wait... </p> : 
-                <p className={loginStatus==='failed' ? "text-red-600" : "hidden"} >Your username or password is incorrect.</p>
+                <p className={loginStatus==='log in failed' ? "text-red-600" : "hidden"} >Your username or password is incorrect.</p>
             }
             <br />
             <p>No account yet? <Link to='/techy-blog/sign-up' className="underline font-bold transition duration-150 hover:text-sky-600 ">Sign-up!</Link></p>

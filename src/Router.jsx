@@ -9,6 +9,7 @@ const Router = () => {
     const [errMainData, setErrMainData] = useState(null);
     const [loadingMainData, setLoadingMainData] = useState(true);
     const [loginStatus, setLoginStatus] = useState('');
+    
 
     const router = createBrowserRouter([
         {
@@ -17,7 +18,7 @@ const Router = () => {
         },
         {
             path: '/techy-blog',
-            element: <App data={data} error={errMainData} loading={loadingMainData} setData={setData} setError={setErrMainData} setLoading={setLoadingMainData} />,
+            element: <App data={data} error={errMainData} loading={loadingMainData} setData={setData} setError={setErrMainData} setLoading={setLoadingMainData} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />,
         },
         {
             path: '/techy-blog/log-in',

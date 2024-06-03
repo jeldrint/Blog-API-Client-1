@@ -27,6 +27,7 @@ export const fetchLogin = (userData, setLoginError, setLoginLoading, setLoginSta
         try{
             const data = await fetch('/techy-blog/api/log-in',{
                 method: "POST",
+                mode: 'cors',
 
                 headers: {
                     "Content-Type": "application/json"
@@ -39,7 +40,8 @@ export const fetchLogin = (userData, setLoginError, setLoginLoading, setLoginSta
     
             })
             const response = await data.json();
-            setLoginStatus(response.login)
+            console.log('login status triggered')
+            setLoginStatus(response.status)
 
         }catch(error){
             console.log(error)
@@ -50,4 +52,24 @@ export const fetchLogin = (userData, setLoginError, setLoginLoading, setLoginSta
         }
     }
     fetchData();
+}
+
+
+export const fetchLogout = (setLoginStatus) => {
+    const fetchData = async () => {
+        try{
+            const data = await fetch('/techy-blog/api/log-out', {
+                mode: "cors",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            });
+            const response = await data.json();
+            //console.log(response)
+            setLoginStatus(response.status)
+        }catch(error){
+            console.log(error)
+        }
+      }
+      fetchData();
 }
