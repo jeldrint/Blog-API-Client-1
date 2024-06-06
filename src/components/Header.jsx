@@ -1,8 +1,7 @@
 import { Link, Navigate } from "react-router-dom";
 import { fetchLogout } from "../utils";
-import { useEffect } from "react";
 
-const Header = ({data, loginStatus, setLoginStatus}) => {
+const Header = ({mainData, loginStatus, setLoginStatus}) => {
 
     const handleLogout = () => {
         fetchLogout(setLoginStatus)
@@ -12,7 +11,7 @@ const Header = ({data, loginStatus, setLoginStatus}) => {
         return <Navigate to='/' />
     }
 
-    if (data.user) {
+    if (mainData.user) {
         return(
         <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between font-myFont bg-slate-300">
             <Link to='/' className='text-slate-600 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold cursor-pointer'>
@@ -20,8 +19,8 @@ const Header = ({data, loginStatus, setLoginStatus}) => {
                 <span className='text-sky-600'>Blog</span>
             </Link>
             <section className='flex items-center gap-x-1 md:gap-x-2 lg:gap-x-3'>
-                <p className='text-base md:text-lg lg:text-xl xl:text-2xl'>{data.user.first_name} {data.user.family_name}</p>
-                <button onClick={handleLogout} className="text-sky-600 underline font-bold transition-colors hover:text-sky-400 cursor-pointer text-xs lg:text-sm">LOG-OUT</button>
+                <p className='text-base md:text-lg lg:text-xl xl:text-2xl'>{mainData.user.first_name} {mainData.user.family_name}</p>
+                <button onClick={handleLogout} className="text-sky-600 underline font-bold transition-colors hover:text-sky-400 cursor-pointer text-xs lg:text-sm">LOG OUT</button>
             </section>
         </header>
         )

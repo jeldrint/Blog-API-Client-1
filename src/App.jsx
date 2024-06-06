@@ -5,23 +5,23 @@ import Blog from './components/Blog'
 import { fetchMainData } from './utils'
 import { useEffect } from 'react'
 
-const App = ({data, error, loading, setData, setError, setLoading, loginStatus, setLoginStatus}) => {
+const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLoadingMain, loginStatus, setLoginStatus }) => {
 
     useEffect(() => {
-        setData(null);
-        setError(null);
-        setLoading(true);
+        setMainData(null);
+        setErrorMain(null);
+        setLoadingMain(true);
         setLoginStatus('');
     },[])
 
-    fetchMainData(setData, setError, setLoading);
-    if (loading) return <p>Loading... Please wait</p>
-    if (error) return <p>A network error was encountered</p>
+    fetchMainData(setMainData, setErrorMain, setLoadingMain);
+    if (loadingMain) return <p>Loading... Please wait</p>
+    if (errorMain) return <p>A network error was encountered</p>
 
     return (
       <div className='h-full w-full flex flex-col justify-between items-center'>
-        <Header data={data} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
-        <Blog data={data} />
+        <Header mainData={mainData} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
+        <Blog mainData={mainData}/>
         <Footer />
       </div>
     )

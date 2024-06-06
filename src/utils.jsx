@@ -9,10 +9,10 @@ export const fetchMainData = (setData, setError, setLoading) => {
             const response = await data.json();
             setData(response);
         }catch(error){
-            console.log('error main data')
+            //console.log('error main data')
             setError(error)
         }finally{
-            console.log('finally main data')
+            //console.log('finally main data')
             setLoading(false);
         }
       }
@@ -20,8 +20,8 @@ export const fetchMainData = (setData, setError, setLoading) => {
     },[]) 
 }
 
-export const fetchLogin = (userData, setLoginError, setLoginLoading, setLoginStatus) => {
-    setLoginLoading(true);
+export const fetchLogin = (userData, setError, setLoading, setLoginStatus) => {
+    setLoading(true);
 
     const fetchData = async () => {
         try{
@@ -40,15 +40,15 @@ export const fetchLogin = (userData, setLoginError, setLoginLoading, setLoginSta
     
             })
             const response = await data.json();
-            console.log('login status triggered')
+            //console.log('login status triggered')
             setLoginStatus(response.status)
 
         }catch(error){
-            console.log(error)
-            setLoginError(error);
+            //console.log(error)
+            setError(error);
         }finally{
-            console.log('finally in fetch login')
-            setLoginLoading(false);
+            //console.log('finally in fetch login')
+            setLoading(false);
         }
     }
     fetchData();
@@ -72,4 +72,44 @@ export const fetchLogout = (setLoginStatus) => {
         }
       }
       fetchData();
+}
+
+
+export const fetchSignup = (userData, setError, setLoading, setSignUpStatus) => {
+    setLoading(true);
+    //console.log(userData)
+
+    const fetchData = async () => {
+        try{
+            const data = await fetch('/techy-blog/api/sign-up',{
+                method: "POST",
+                mode: 'cors',
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    firstname: userData.firstName,
+                    lastname: userData.lastName,
+                    username: userData.userName,
+                    password: userData.password,
+                    "confirm-password": userData.confirmPassword,
+                    admincode: userData.adminCode
+                }),
+    
+            })
+            const response = await data.json();
+            setSignUpStatus(response)
+            console.log(response)
+
+        }catch(error){
+            console.log(error)
+            setError(error);
+        }finally{
+            console.log('finally in fetch signup')
+            setLoading(false);
+        }
+    }
+    fetchData();
 }

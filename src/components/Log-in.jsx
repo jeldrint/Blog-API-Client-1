@@ -5,8 +5,8 @@ import { Navigate } from "react-router-dom"
 
 const Login = ({loginStatus, setLoginStatus}) => {
     const [userData, setUserData] = useState({username: '', password: ''})
-    const [loginError, setLoginError] = useState(null);
-    const [loginLoading, setLoginLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
         switch(e.target.name){
@@ -21,10 +21,10 @@ const Login = ({loginStatus, setLoginStatus}) => {
     }
 
     const handleSubmit = (e) => {
-        fetchLogin(userData, setLoginError, setLoginLoading, setLoginStatus);
+        fetchLogin(userData, setError, setLoading, setLoginStatus);
         e.preventDefault();
     }
-    if(loginError) {return <p>Login error. Please contact customer support. </p>}
+    if(error) {return <p>Login error. Please contact customer support. </p>}
 
     return (
         <div className="m-8">
@@ -43,14 +43,14 @@ const Login = ({loginStatus, setLoginStatus}) => {
                 <button className="cursor-pointer text-sm rounded py-1 px-3  transition-colors bg-gray-700 hover:bg-gray-900 active:bg-gray-500 text-neutral-50">Log-in</button>
             </form>
             <br />
-            { loginLoading ?
+            { loading ?
                 <p>Verifying user, please wait... </p> : 
                 <p className={loginStatus==='log in failed' ? "text-red-600" : "hidden"} >Your username or password is incorrect.</p>
             }
             <br />
             <p>No account yet? <Link to='/techy-blog/sign-up' className="underline font-bold transition duration-150 hover:text-sky-600 ">Sign-up!</Link></p>
             <br />
-            <Link to='/techy-blog' className="display-flex font-bold transition duration-150 hover:text-sky-600 ">
+            <Link to='/' className="display-flex font-bold transition duration-150 hover:text-sky-600 ">
                 {String.fromCharCode(171)} Return to Home
             </Link> 
         </div>

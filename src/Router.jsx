@@ -5,9 +5,9 @@ import SignUp from './components/Sign-up'
 import { useState } from 'react';
 
 const Router = () => {
-    const [data, setData] = useState(null);
-    const [errMainData, setErrMainData] = useState(null);
-    const [loadingMainData, setLoadingMainData] = useState(true);
+    const [mainData, setMainData] = useState(null);
+    const [errorMain, setErrorMain] = useState(null);
+    const [loadingMain, setLoadingMain] = useState(true);
     const [loginStatus, setLoginStatus] = useState('');
     
 
@@ -18,7 +18,7 @@ const Router = () => {
         },
         {
             path: '/techy-blog',
-            element: <App data={data} error={errMainData} loading={loadingMainData} setData={setData} setError={setErrMainData} setLoading={setLoadingMainData} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />,
+            element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />,
         },
         {
             path: '/techy-blog/log-in',

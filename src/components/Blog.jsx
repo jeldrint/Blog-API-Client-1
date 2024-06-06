@@ -2,12 +2,12 @@
 
 
 
-const Blog = ({data}) => {
-    //console.log(data.posts)
+const Blog = ({mainData}) => {
+    //console.log(mainData.posts)
 
     return(
         <div className="h-full w-full p-4 gap-y-2">
-            {data.posts.map(post => {
+            {mainData.posts.map(post => {
                 const timestamp = new Date(post.timestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
                 const updatedTimestamp = new Date(post.updatedTimestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
                 return(
