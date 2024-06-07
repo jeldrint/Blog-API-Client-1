@@ -27,7 +27,12 @@ const Router = () => {
         {
             path: '/techy-blog/sign-up',
             element: <SignUp />
-        }
+        },
+        {
+            path: '/techy-blog/:id',
+            element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />,
+        },
+
     ])
 
     return <RouterProvider router={router} />

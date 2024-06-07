@@ -28,7 +28,7 @@ const Login = ({loginStatus, setLoginStatus}) => {
 
     return (
         <div className="m-8">
-            {loginStatus === 'logged in' && <Navigate to='/' />}
+            {loginStatus === 'logged in' && <Navigate to={`/techy-blog/${userData.username}`} />}
             <p className="font-myFont text-3xl">Please Log-in. </p>
             <br />
             <form onSubmit={handleSubmit}>
