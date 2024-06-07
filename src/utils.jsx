@@ -101,13 +101,13 @@ export const fetchSignup = (userData, setError, setLoading, setSignUpStatus) => 
             })
             const response = await data.json();
             setSignUpStatus(response)
-            console.log(response)
+            //console.log(response)
 
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setError(error);
         }finally{
-            console.log('finally in fetch signup')
+            //console.log('finally in fetch signup')
             setLoading(false);
         }
     }

@@ -41,19 +41,7 @@ const Signup = () => {
 
     if(error) {return <p>Sign up error. Please contact customer support. </p>}
 
-    if (signUpStatus.successMessage) {
-        setSignUpStatus([]);
-        return <Navigate to='/' />
-    }
-
-
-    //if(signUpStatus.errors)
-
-/*     { loading ?
-        <p>Verifying data, please wait... </p> : 
-        <p className={signUpStatus==='sign up failed' ? "text-red-600" : "hidden"} >S</p>
-    }
- */
+    if (signUpStatus.successMessage) return <Navigate to='/' />
 
     return (
         <div className="m-8">
@@ -90,19 +78,20 @@ const Signup = () => {
                 <button className="cursor-pointer text-sm rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">Sign-up</button>
             </form>
             <br />
-            { loading && <p>Verifying data, please wait... </p> }
-
+            { loading ? <p>Verifying data, please wait... </p> :
+                signUpStatus.errors &&
+                signUpStatus.errors.map(err=>{
+                    return(
+                        <ul key={err.path}>
+                            <li className="text-red-600"><strong>Invalid {err.path.toUpperCase()}: </strong>{err.msg}</li>
+                        </ul>
+                    )
+                })        
+            }
             <br />
             <Link to='/' className="display-flex font-bold transition duration-150 hover:text-sky-600 ">
                 {String.fromCharCode(171)} Return to Home
             </Link>
-            { signUpStatus.errors && 
-                signUpStatus.errors.map(err=>{
-                    <ul key={err.path}>
-                        <li className="text-red-600"><strong>{err.path}: </strong>{err.msg}</li>
-                    </ul>
-                })
-            }
         </div>
     )
 }
