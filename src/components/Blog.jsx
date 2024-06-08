@@ -1,12 +1,20 @@
+import { useNavigate } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 const Blog = ({mainData}) => {
+    const {id} = useParams()
+    const navigate = useNavigate();
     //console.log(mainData.user.isAdmin)
-    //{mainData.user.isAdmin ? <div>WRITE A POST</div> : <></>}
+
+    const handleClick = () => {
+        return navigate(`/techy-blog/${id}/write-post`);
+    }
     
     if(mainData.user){
+        //console.log(id)
         return(
             <div className="h-full w-full p-4 gap-y-2">
-                {mainData.user.isAdmin && <button className="w-full my-3 text-[15px] rounded-md p-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">WRITE A POST</button>}
+                {mainData.user.isAdmin && <button onClick={handleClick} className="w-full my-3 text-[15px] rounded-md p-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">WRITE A POST</button>}
                 {mainData.posts.map(post => {
                     const timestamp = new Date(post.timestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
                     const updatedTimestamp = new Date(post.updatedTimestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})

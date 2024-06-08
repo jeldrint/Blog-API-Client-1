@@ -3,6 +3,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './components/Log-in'
 import SignUp from './components/Sign-up'
 import { useState } from 'react';
+import WritePost from './components/Write-Post';
 
 const Router = () => {
     const [mainData, setMainData] = useState(null);
@@ -31,6 +32,10 @@ const Router = () => {
         {
             path: '/techy-blog/:id',
             element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />,
+        },
+        {
+            path: '/techy-blog/:id/write-post',
+            element: <WritePost />,
         },
 
     ])
