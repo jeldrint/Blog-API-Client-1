@@ -3,8 +3,11 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './components/Log-in'
 import SignUp from './components/Sign-up'
 import { useState } from 'react';
+
 import WritePost from './components/Post-Write';
 import UpdatePost from './components/Post-Update';
+import DeletePost from './components/Post-Delete';
+
 
 const Router = () => {
     const [mainData, setMainData] = useState(null);
@@ -41,6 +44,10 @@ const Router = () => {
         {
             path: '/techy-blog/:id/update-post',
             element: <UpdatePost />,
+        },
+        {
+            path: '/techy-blog/:id/delete-post',
+            element: <DeletePost />,
         },
 
     ])

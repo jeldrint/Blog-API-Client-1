@@ -149,7 +149,7 @@ export const fetchWritePost = (data, setError, setLoading, setWritePostStatus) =
 }
 
 
-export const fetchUpdatePost = (data, setError, setLoading, setWritePostStatus) => {
+export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus) => {
     setLoading(true);
 
     const fetchData = async () => {
@@ -170,7 +170,7 @@ export const fetchUpdatePost = (data, setError, setLoading, setWritePostStatus) 
             })
             const response = await res.json();
             //console.log(response)
-            setWritePostStatus(response)
+            setUpdatePostStatus(response)
 
         }catch(error){
             //console.log(error)

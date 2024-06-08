@@ -6,15 +6,24 @@ const Blog = ({mainData}) => {
     const navigate = useNavigate();
     //console.log(mainData.user.isAdmin)
 
-    const handleClick = () => {
+    const handleWritePostClick = () => {
         return navigate(`/techy-blog/${id}/write-post`);
     }
-    
+
+    const handleUpdatePostClick = (e,post) => {
+        console.log(post)
+        return navigate(`/techy-blog/${id}/update-post`);
+    }
+
+    const handleDeletePostClick = (e,post) => {
+        return navigate(`/techy-blog/${id}/delete-post`);
+    }
+
     if(mainData.user){
         //console.log(id)
         return(
             <div className="h-full w-full p-4">
-                {mainData.user.isAdmin && <button onClick={handleClick} className="w-full my-3 text-[15px] rounded-md p-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">WRITE A POST</button>}
+                {mainData.user.isAdmin && <button onClick={handleWritePostClick} className="w-full my-3 text-[15px] rounded-md p-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">WRITE A POST</button>}
                 {mainData.posts.map(post => {
                     const timestamp = new Date(post.timestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
                     const updatedTimestamp = new Date(post.updatedTimestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
@@ -24,8 +33,8 @@ const Blog = ({mainData}) => {
                                     <div className="grid grid-cols-4">
                                         <div className="col-span-3 font-bold tracking-wide text-xl md:text-2xl lg:text-3xl xl:text-4xl ">{post.title}</div>
                                         <div className="flex flex-col md:flex-row items-center justify-center gap-x-2 gap-y-2 text-sm lg:text-base">
-                                            <button className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">UPDATE</button>
-                                            <button className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">DELETE</button>
+                                            <button onClick={e=>handleUpdatePostClick(e,post)} className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">UPDATE</button>
+                                            <button onClick={e=>handleDeletePostClick(e,post)} className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">DELETE</button>
                                         </div>
                                     </div>
                                     <div className="text-xs lg:text-sm flex-col mt-[5px]">
