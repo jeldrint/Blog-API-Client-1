@@ -13,7 +13,7 @@ const Blog = ({mainData}) => {
     if(mainData.user){
         //console.log(id)
         return(
-            <div className="h-full w-full p-4 gap-y-2">
+            <div className="h-full w-full p-4">
                 {mainData.user.isAdmin && <button onClick={handleClick} className="w-full my-3 text-[15px] rounded-md p-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">WRITE A POST</button>}
                 {mainData.posts.map(post => {
                     const timestamp = new Date(post.timestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})

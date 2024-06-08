@@ -113,3 +113,72 @@ export const fetchSignup = (userData, setError, setLoading, setSignUpStatus) => 
     }
     fetchData();
 }
+
+export const fetchWritePost = (data, setError, setLoading, setWritePostStatus) => {
+    setLoading(true);
+
+    const fetchData = async () => {
+        try{
+            const res = await fetch('/techy-blog/api/write-post',{
+                method: "POST",
+                mode: 'cors',
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    title: data.title,
+                    message: data.message,
+                }),
+    
+            })
+            const response = await res.json();
+            //console.log(response)
+            setWritePostStatus(response)
+
+        }catch(error){
+            //console.log(error)
+            setError(error);
+        }finally{
+            //console.log('finally in fetch writepost')
+            setLoading(false);
+        }
+    }
+    fetchData();
+}
+
+
+export const fetchUpdatePost = (data, setError, setLoading, setWritePostStatus) => {
+    setLoading(true);
+
+    const fetchData = async () => {
+        try{
+            const res = await fetch('/techy-blog/api/write-post',{
+                method: "POST",
+                mode: 'cors',
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    title: data.title,
+                    message: data.message,
+                }),
+    
+            })
+            const response = await res.json();
+            //console.log(response)
+            setWritePostStatus(response)
+
+        }catch(error){
+            //console.log(error)
+            setError(error);
+        }finally{
+            //console.log('finally in fetch writepost')
+            setLoading(false);
+        }
+    }
+    fetchData();
+}
