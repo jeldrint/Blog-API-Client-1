@@ -36,7 +36,7 @@ const UpdatePost = ({mainData, blogPost}) => {
     return(
         <div className="w-full p-4">
             <form onSubmit={handleSubmit}>
-                <p className="mb-4 text-slate-500 text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold italic">Write post here...</p>
+                <p className="mb-4 text-slate-500 text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold italic">Updating post...</p>
                 <div>
                     <input required onChange={handleChange} name="title" placeholder="Enter a title..." defaultValue={blogPost.title} className="mb-2 w-full border border-slate-500 rounded-md p-2"  />
                     <textarea required onChange={handleChange} name="message" placeholder="Enter text..." defaultValue={blogPost.body} className="mb-4 resize-none w-full min-h-80 whitespace-pre border text-wrap border-slate-500 rounded-md p-2"></textarea>

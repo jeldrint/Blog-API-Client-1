@@ -10,7 +10,7 @@ import DeletePost from './components/Post-Delete';
 
 
 const Router = () => {
-    const [mainData, setMainData] = useState(null);
+    const [mainData, setMainData] = useState({});
     const [errorMain, setErrorMain] = useState(null);
     const [loadingMain, setLoadingMain] = useState(true);
     const [loginStatus, setLoginStatus] = useState('');
@@ -51,8 +51,8 @@ const Router = () => {
             element: <UpdatePost mainData={mainData} blogPost={blogPost} />,
         },
         {
-            path: '/techy-blog/:id/delete-post',
-            element: <DeletePost />,
+            path: '/techy-blog/:id/delete-post/:postId',
+            element: <DeletePost blogPost={blogPost} />,
         },
 
     ])

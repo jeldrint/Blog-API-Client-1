@@ -15,7 +15,8 @@ const Blog = ({mainData, setBlogPost}) => {
     }
 
     const handleDeletePostClick = (e,post) => {
-        return navigate(`/techy-blog/${id}/delete-post`);
+        setBlogPost({title: post.title, body: post.body});
+        return navigate(`/techy-blog/${id}/delete-post/${post._id}`);
     }
 
     if(mainData.user){
