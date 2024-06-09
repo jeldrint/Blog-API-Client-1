@@ -1,18 +1,17 @@
 import { useNavigate } from "react-router-dom"
 import { useParams } from "react-router-dom"
 
-const Blog = ({mainData}) => {
+const Blog = ({mainData, setBlogPost}) => {
     const {id} = useParams()
     const navigate = useNavigate();
-    //console.log(mainData.user.isAdmin)
 
     const handleWritePostClick = () => {
         return navigate(`/techy-blog/${id}/write-post`);
     }
 
     const handleUpdatePostClick = (e,post) => {
-        console.log(post)
-        return navigate(`/techy-blog/${id}/update-post`);
+        setBlogPost({title: post.title, body: post.body});
+        return navigate(`/techy-blog/${id}/update-post/${post._id}`);
     }
 
     const handleDeletePostClick = (e,post) => {

@@ -3,12 +3,14 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { fetchUpdatePost } from "../utils";
 
 
-const UpdatePost = () => {
-    const {id} = useParams();
-    const [data, setData] = useState({title: '', message: ''})
+const UpdatePost = ({mainData, blogPost}) => {
+    const {id, postId} = useParams();
+    const [data, setData] = useState({postId: postId, title: blogPost.title, message: blogPost.body, userId: mainData.user})
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [updatePostStatus, setUpdatePostStatus] = useState({});
+
+    //console.log(id,postId)
 
     const handleChange = (e) => {
         switch(e.target.name){
@@ -22,7 +24,6 @@ const UpdatePost = () => {
         e.preventDefault();
     }
 
-
     const handleSubmit = (e) => {
         fetchUpdatePost(data, setError, setLoading, setUpdatePostStatus);
         e.preventDefault();
@@ -30,15 +31,15 @@ const UpdatePost = () => {
 
     if(error) {return <p>Updating post error. Please contact customer support. </p>}
 
-    //if (updatePostStatus.success) return <Navigate to={`/techy-blog/${id}`} />
+    if (updatePostStatus.success) return <Navigate to={`/techy-blog/${id}`} />
 
     return(
         <div className="w-full p-4">
             <form onSubmit={handleSubmit}>
                 <p className="mb-4 text-slate-500 text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold italic">Write post here...</p>
                 <div>
-                    <input required onChange={handleChange} name="title" placeholder="Enter a title..." className="mb-2 w-full border border-slate-500 rounded-md p-2"  />
-                    <textarea required onChange={handleChange} name="message"  placeholder="Enter text..." className="mb-4 resize-none w-full min-h-80 whitespace-pre border border-slate-500 rounded-md p-2"></textarea>
+                    <input required onChange={handleChange} name="title" placeholder="Enter a title..." defaultValue={blogPost.title} className="mb-2 w-full border border-slate-500 rounded-md p-2"  />
+                    <textarea required onChange={handleChange} name="message" placeholder="Enter text..." defaultValue={blogPost.body} className="mb-4 resize-none w-full min-h-80 whitespace-pre border text-wrap border-slate-500 rounded-md p-2"></textarea>
                 </div>
                 <button className="text-sm rounded-md px-3 py-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">Submit</button>
             </form>

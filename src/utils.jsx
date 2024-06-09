@@ -151,10 +151,11 @@ export const fetchWritePost = (data, setError, setLoading, setWritePostStatus) =
 
 export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus) => {
     setLoading(true);
+    console.log(data)
 
     const fetchData = async () => {
         try{
-            const res = await fetch('/techy-blog/api/write-post',{
+            const res = await fetch('/techy-blog/api/update-post',{
                 method: "POST",
                 mode: 'cors',
 
@@ -163,8 +164,10 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus)
                 },
     
                 body: JSON.stringify({
+                    postId: data.postId,
                     title: data.title,
                     message: data.message,
+                    userId: data.userId
                 }),
     
             })

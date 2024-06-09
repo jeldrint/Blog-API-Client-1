@@ -5,7 +5,7 @@ import Blog from './components/Blog'
 import { fetchMainData } from './utils'
 import { useEffect } from 'react'
 
-const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLoadingMain, loginStatus, setLoginStatus }) => {
+const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLoadingMain, loginStatus, setLoginStatus, setBlogPost }) => {
 
     useEffect(() => {
         setMainData(null);
@@ -21,7 +21,7 @@ const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLo
     return (
       <div className='h-full w-full flex flex-col justify-between items-center'>
         <Header mainData={mainData} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
-        <Blog mainData={mainData}/>
+        <Blog mainData={mainData} setBlogPost={setBlogPost} />
         <Footer />
       </div>
     )
