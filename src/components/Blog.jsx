@@ -32,10 +32,12 @@ const Blog = ({mainData, setBlogPost}) => {
                                 <div>
                                     <div className="grid grid-cols-4">
                                         <div className="col-span-3 font-bold tracking-wide text-xl md:text-2xl lg:text-3xl xl:text-4xl ">{post.title}</div>
+                                        {mainData.user.isAdmin && 
                                         <div className="flex flex-col md:flex-row items-center justify-center gap-x-2 gap-y-2 text-sm lg:text-base">
                                             <button onClick={e=>handleUpdatePostClick(e,post)} className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">UPDATE</button>
                                             <button onClick={e=>handleDeletePostClick(e,post)} className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">DELETE</button>
                                         </div>
+                                        }
                                     </div>
                                     <div className="text-xs lg:text-sm flex-col mt-[5px]">
                                         <div className='flex gap-x-[50px]'><span>BY: <strong><i>{post.userId.first_name} {post.userId.family_name}</i></strong></span> <span>Created: {timestamp}</span></div>
