@@ -13,9 +13,9 @@ Currently, two official plugins are available:
 
 May 27 - June 2
 - 
-* incorporate login ☑️ / signup / logout from the server
-        - I think we're gonna use Passport’s JWT strategy.
-        - Login / Signup page from React done. Now is the JWT logic
+    * incorporate login ☑️ / signup / logout from the server
+            - I think we're gonna use Passport’s JWT strategy.
+            - Login / Signup page from React done. Now is the JWT logic
 
 * May 27
     * date is now reformatted, public display of blog is done☑️
@@ -36,9 +36,9 @@ May 27 - June 2
 
 June 3 - June 9
 - 
-* incorporate login ☑️ / signup ☑️ / logout ☑️ from the server
-        - We're gonna use Passport’s JWT strategy.
-* Write / Update / Delete from Admin is also done in React
+    * incorporate login ☑️ / signup ☑️ / logout ☑️ from the server
+            - We're gonna use Passport’s JWT strategy.
+    * Write / Update / Delete from Admin is also done in React
 
 * June 3
     * log-in / log-out from client side along with loading is smooth now ☑️
