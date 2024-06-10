@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { fetchWritePost } from "../utils";
 
-const WritePost = () => {
+const WritePost = ({mainData}) => {
     const {id} = useParams();
-    const [data, setData] = useState({title: '', message: ''})
+    const [data, setData] = useState({title: '', message: '', userId: mainData.user})
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [writePostStatus, setWritePostStatus] = useState({});

@@ -130,6 +130,7 @@ export const fetchWritePost = (data, setError, setLoading, setWritePostStatus) =
                 body: JSON.stringify({
                     title: data.title,
                     message: data.message,
+                    userId: data.userId
                 }),
     
             })
@@ -208,6 +209,38 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
             //console.log(response)
             setUpdatePostStatus(response)
 
+        }catch(error){
+            //console.log(error)
+            setError(error);
+        }finally{
+            //console.log('finally in fetch writepost')
+            setLoading(false);
+        }
+    }
+    fetchData();
+}
+
+export const fetchComment = (commentData, setError, setLoading, setCommentStatus) => {
+    setLoading(true);
+    const fetchData = async () => {
+        try{
+            const res = await fetch('/techy-blog/api/write-comment',{
+                method: "POST",
+                mode: 'cors',
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    comment: commentData.comment,
+                    userId: commentData.userId
+                }),
+    
+            })
+            const response = await res.json();
+            console.log(response)
+            setCommentStatus(response)
         }catch(error){
             //console.log(error)
             setError(error);

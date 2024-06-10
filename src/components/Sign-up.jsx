@@ -7,7 +7,7 @@ const Signup = () => {
     const [userData, setUserData] = useState({firstName: '', lastName: '', userName: '', password: '', confirmPassword:'', adminCode: ''})
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [signUpStatus, setSignUpStatus] = useState([])
+    const [signUpStatus, setSignUpStatus] = useState({})
 
     const handleChange = (e) => {
         switch(e.target.name){

@@ -44,7 +44,7 @@ const Router = () => {
         },
         {
             path: '/techy-blog/:id/write-post',
-            element: <WritePost />,
+            element: <WritePost mainData={mainData} />,
         },
         {
             path: '/techy-blog/:id/update-post/:postId',

@@ -74,8 +74,11 @@ June 3 - June 9
 
 June 10 - June 16
 - 
-* Let's work on comments
-* Should I work on the second website for the isAdmin? i did not ❌
+    * Let's work on comments
 
 * June 10
-    * 
+    * Should I work on the second website for the isAdmin? i did not ❌
+
+    * Working on comments
+        - Written my first comment ☑️
+        - next thing to do is display it nicely
