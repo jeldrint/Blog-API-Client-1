@@ -234,7 +234,8 @@ export const fetchComment = (commentData, setError, setLoading, setCommentStatus
     
                 body: JSON.stringify({
                     comment: commentData.comment,
-                    userId: commentData.userId
+                    userId: commentData.userId,
+                    postId: commentData.postId
                 }),
     
             })

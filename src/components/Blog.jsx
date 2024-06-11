@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom"
-import Comment from "./Comment";
-
+import AddComment from "./Comment-Add";
+import DisplayComment from "./Comment-Display";
 
 const Blog = ({mainData, setBlogPost}) => {
     const {id} = useParams()
@@ -49,7 +49,8 @@ const Blog = ({mainData, setBlogPost}) => {
                             <br />
                             <p className="whitespace-pre-wrap text-sm md:text-[15px] lg:text-base">{post.body}</p>
                             <br />
-                            <Comment user={mainData.user} />
+                            <DisplayComment comments={mainData.comments} postId={post._id} />
+                            <AddComment user={mainData.user} postId={post} />
                         </div>
                     )
                 })}

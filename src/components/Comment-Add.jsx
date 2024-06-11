@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { fetchComment } from "../utils";
+import { useNavigate, useParams } from "react-router-dom";
 
-const Comment = ({user}) => {
+const AddComment = ({user, postId}) => {
     const [showCommentForm, setShowCommentForm] = useState(false);
-    const [commentData, setCommentData] = useState({comment: '', userId: user});
+    const [commentData, setCommentData] = useState({comment: '', userId: user, postId: postId});
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [commentStatus, setCommentStatus] = useState({})
+
+    const navigate = useNavigate();
+    const {id} = useParams();
+
 
     const handleChangeComment = (e) => {
         switch(e.target.name){
@@ -19,12 +24,16 @@ const Comment = ({user}) => {
 
     const handleSubmitComment = (e) => {
         fetchComment(commentData, setError, setLoading, setCommentStatus)
+        setShowCommentForm(false)
         e.preventDefault();
+
     }
 
     if(error) {return <p>Comment submission error. Please contact customer support. </p>}
 
     if(loading){return <p>Submitting comment.. please wait. </p>}
+
+    if(commentStatus.success) return navigate(`/techy-blog/${id}`)
 
     return(
         <>
@@ -42,4 +51,4 @@ const Comment = ({user}) => {
     )
 }
 
-export default Comment;
+export default AddComment;
