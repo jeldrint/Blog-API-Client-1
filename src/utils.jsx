@@ -220,11 +220,11 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
     fetchData();
 }
 
-export const fetchComment = (commentData, setError, setLoading, setCommentStatus) => {
-    setLoading(true);
+export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus) => {
+    setLoadingSubmit(true);
     const fetchData = async () => {
         try{
-            const res = await fetch('/techy-blog/api/write-comment',{
+            const res = await fetch('/techy-blog/api/comments',{
                 method: "POST",
                 mode: 'cors',
 
@@ -233,22 +233,44 @@ export const fetchComment = (commentData, setError, setLoading, setCommentStatus
                 },
     
                 body: JSON.stringify({
-                    comment: commentData.comment,
-                    userId: commentData.userId,
-                    postId: commentData.postId
+                    comment: commentSubmit.comment,
+                    userId: commentSubmit.userId,
+                    postId: commentSubmit.postId,
+                    date: commentSubmit.date,
                 }),
     
             })
             const response = await res.json();
             console.log(response)
-            setCommentStatus(response)
+            setCommentSubmitStatus(response)
         }catch(error){
             //console.log(error)
-            setError(error);
+            setErrorSubmit(error);
         }finally{
             //console.log('finally in fetch writepost')
-            setLoading(false);
+            setLoadingSubmit(false);
         }
     }
     fetchData();
+}
+
+export const fetchDisplayComment = (setComments, setErrorDisplay, setLoadingDisplay) => {
+    //setLoadingDisplay(true);
+    useEffect(() => {
+        const fetchData = async () => {
+          try{
+              const data = await fetch('/techy-blog/api/comments', {method:"GET", mode: "cors"});
+              const response = await data.json();
+              console.log(response)
+              setComments(response);
+          }catch(error){
+              console.log('error display comments')
+              setErrorDisplay(error)
+          }finally{
+              console.log('finally display comments')
+              setLoadingDisplay(false);
+          }
+        }
+        fetchData();
+      },[])   
 }

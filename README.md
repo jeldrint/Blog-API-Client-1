@@ -87,4 +87,9 @@ June 10 - June 16
         * can write and display comment now (initial)
 
     * June 12
-        * we should make comments render itself by not re-rendering the full website. how do we do that?
+        * we should make comments render itself by not re-rendering the full website.
+            - how do we do that?
+                1. fetch the API call in the Comments component, not at the top. Make a fetch GET of the comments in the server.❌
+                    * tried this one but still needs to do api call from the top for default display.
+                2. thinking if we can put the comments temporarily in a state? and then when it is time rendering the whole thing, it's gonna transfer to the top?
+                    * working on the date / timestamp. comments' date will come from React app. because other timestamps are written on the server

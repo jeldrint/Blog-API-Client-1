@@ -1,10 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom"
-import AddComment from "./Comment-Add";
+import { useState } from "react";
+import WriteComment from "./Comment-Write";
 import DisplayComment from "./Comment-Display";
 
 const Blog = ({mainData, setBlogPost}) => {
     const {id} = useParams()
     const navigate = useNavigate();
+    const [displayComments, setDisplayComments] = useState(mainData.comments);
 
 
     const handleWritePostClick = () => {
@@ -49,8 +51,8 @@ const Blog = ({mainData, setBlogPost}) => {
                             <br />
                             <p className="whitespace-pre-wrap text-sm md:text-[15px] lg:text-base">{post.body}</p>
                             <br />
-                            <DisplayComment comments={mainData.comments} postId={post._id} />
-                            <AddComment user={mainData.user} postId={post} />
+                            <DisplayComment displayComments={displayComments} postId={post} />
+                            <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} />
                         </div>
                     )
                 })}
