@@ -76,12 +76,15 @@ June 10 - June 16
 - 
     * Let's work on comments
 
-* June 10
-    * Should I work on the second website for the isAdmin? i did not ❌
+    * June 10
+        * Should I work on the second website for the isAdmin? i did not ❌
 
-    * Working on comments
-        - Written my first comment ☑️
-        - next thing to do is display it nicely
+        * Working on comments
+            - Written my first comment ☑️
+            - next thing to do is display it nicely
 
-* June 11
-    * can write and display comment now (initial)
+    * June 11
+        * can write and display comment now (initial)
+
+    * June 12
+        * we should make comments render itself by not re-rendering the full website. how do we do that?
