@@ -1,15 +1,9 @@
 import { useState } from "react";
 import { fetchSubmitComment } from "../utils";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
-
-import { fetchDisplayComment } from "../utils";
 
 const WriteComment = ({user, postId, displayComments, setDisplayComments}) => {
-    const {id} = useParams();
-    const navigate = useNavigate();
-
     const [showCommentForm, setShowCommentForm] = useState(false);
-    const [commentSubmit, setCommentSubmit] = useState({comment: '', date: '', userId: user, postId: postId});
+    const [commentSubmit, setCommentSubmit] = useState({comment: '', timestamp: '', userId: user, postId: postId});
     const [errorSubmit, setErrorSubmit] = useState(null);
     const [loadingSubmit, setLoadingSubmit] = useState(false);
     const [commentSubmitStatus, setCommentSubmitStatus] = useState({})
@@ -17,20 +11,18 @@ const WriteComment = ({user, postId, displayComments, setDisplayComments}) => {
     const handleChangeComment = (e) => {
         switch(e.target.name){
             case 'comment-bar':
-                setCommentSubmit({...commentSubmit, comment: e.target.value})
+                setCommentSubmit(prev => ({...prev, comment: e.target.value}))
                 break;
         }
+        setCommentSubmit(prev => ({...prev, timestamp: new Date()}))
         e.preventDefault();
     }
 
     const handleSubmitComment = (e) => {
-        setCommentSubmit({...commentSubmit, date: new Date()})
-        setDisplayComments([...displayComments,commentSubmit])
-        fetchSubmitComment(commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus)
         setShowCommentForm(false)
+        setDisplayComments([...displayComments,commentSubmit])
+        fetchSubmitComment(commentSubmit, setCommentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus)
         e.preventDefault();
-
-        //return navigate(`/techy-blog/${id}`)
     }
 
     if(errorSubmit) {return <p>Comment submission error. Please contact customer support. </p>}

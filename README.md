@@ -91,5 +91,14 @@ June 10 - June 16
             - how do we do that?
                 1. fetch the API call in the Comments component, not at the top. Make a fetch GET of the comments in the server.❌
                     * tried this one but still needs to do api call from the top for default display.
-                2. thinking if we can put the comments temporarily in a state? and then when it is time rendering the whole thing, it's gonna transfer to the top?
+                2. thinking if we can put the comments temporarily in a state? and then when it is time rendering the whole thing, it's gonna transfer to the top? ☑️
                     * working on the date / timestamp. comments' date will come from React app. because other timestamps are written on the server
+
+    * June 14
+        - grabe ang struggle ko sa date na ito sa number 2. pambihira
+            - done. sa wakas
+            - sobrang complex ng problem as in. dineclare ko sila pareho sa handleChange() function, which was I think medyo dull? But i achieved it.
+        * i put the comment temporarily in a state, and then it displays temporarily (via the state) without rendering the whole component. it is a new thing to me, a groundbreaking thing that was done.
+            - i struggled a lot here because of the errors in date, which points out to my error in setstate calls.
+            - now it looks neat. but the code still needs a clean up.
+        

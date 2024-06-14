@@ -26,6 +26,7 @@ const Login = ({loginStatus, setLoginStatus}) => {
     }
     if(error) {return <p>Login error. Please contact customer support. </p>}
 
+    //console.log('log-in')
     return (
         <div className="m-8">
             {loginStatus === 'logged in' && <Navigate to={`/techy-blog/${userData.username}`} />}

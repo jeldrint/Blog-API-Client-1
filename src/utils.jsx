@@ -220,8 +220,10 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
     fetchData();
 }
 
-export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus) => {
+export const fetchSubmitComment = (commentSubmit, setCommentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus) => {
     setLoadingSubmit(true);
+    setCommentSubmit({...commentSubmit, timestamp: new Date()})
+    console.log(commentSubmit)
     const fetchData = async () => {
         try{
             const res = await fetch('/techy-blog/api/comments',{
@@ -236,7 +238,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
                     comment: commentSubmit.comment,
                     userId: commentSubmit.userId,
                     postId: commentSubmit.postId,
-                    date: commentSubmit.date,
+                    timestamp: commentSubmit.timestamp,
                 }),
     
             })
@@ -244,7 +246,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
             console.log(response)
             setCommentSubmitStatus(response)
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setErrorSubmit(error);
         }finally{
             //console.log('finally in fetch writepost')
@@ -254,7 +256,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
     fetchData();
 }
 
-export const fetchDisplayComment = (setComments, setErrorDisplay, setLoadingDisplay) => {
+/* export const fetchDisplayComment = (setComments, setErrorDisplay, setLoadingDisplay) => {
     //setLoadingDisplay(true);
     useEffect(() => {
         const fetchData = async () => {
@@ -273,4 +275,4 @@ export const fetchDisplayComment = (setComments, setErrorDisplay, setLoadingDisp
         }
         fetchData();
       },[])   
-}
+} */
