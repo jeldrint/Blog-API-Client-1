@@ -107,3 +107,4 @@ June 17 - June 23
     * linisin yung comments and other elements
 
 * June 17
+    - comment section complete
