@@ -49,8 +49,7 @@ const Blog = ({mainData, setBlogPost}) => {
                                 </div>
                             </div>
                             <br />
-                            <p className="whitespace-pre-wrap text-sm md:text-[15px] lg:text-base">{post.body}</p>
-                            <br />
+                            <p className="whitespace-pre-wrap text-sm md:text-[15px] lg:text-base mb-3">{post.body}</p>
                             <DisplayComment displayComments={displayComments} postId={post} />
                             <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} />
                         </div>
