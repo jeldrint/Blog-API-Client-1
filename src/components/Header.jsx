@@ -14,12 +14,12 @@ const Header = ({mainData, loginStatus, setLoginStatus}) => {
     if (mainData.user) {
         return(
         <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between font-myFont bg-slate-300">
-            <div className='text-slate-600 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-varela'>
+            <div className='text-slate-600 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-varela'>
                 <span>Techy</span>
                 <span className='text-sky-600'>Blog</span>
             </div>
             <section className='flex items-center gap-x-1 md:gap-x-2 lg:gap-x-3'>
-                <p className='text-base md:text-lg lg:text-xl xl:text-2xl'>{mainData.user.first_name} {mainData.user.family_name}</p>
+                <p className='text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>{mainData.user.first_name} {mainData.user.family_name}</p>
                 <button onClick={handleLogout} className="text-sky-600 underline font-bold transition-colors hover:text-sky-400 cursor-pointer text-xs lg:text-sm">LOG OUT</button>
             </section>
         </header>

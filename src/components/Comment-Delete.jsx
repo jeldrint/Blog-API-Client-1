@@ -11,7 +11,6 @@ const DeleteComment = ({displayComments, setDisplayComments, comment}) => {
         setDeleteBtn(false);
         setDisplayComments(displayComments.filter(displayComment => displayComment._id != comment._id))
         fetchDeleteComment(comment, setError, setLoading, setStatus)
-        //console.log(displayComments.filter(displayComment => displayComment._id != comment._id))
         e.preventDefault();
     }
 
