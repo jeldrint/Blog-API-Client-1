@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLoadingMain, loginStatus, setLoginStatus, setBlogPost }) => {
 
     useEffect(() => {
-        setMainData(null);
+        setMainData({});
         setErrorMain(null);
         setLoadingMain(true);
         setLoginStatus('');

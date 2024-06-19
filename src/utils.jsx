@@ -180,7 +180,7 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus)
             //console.log(error)
             setError(error);
         }finally{
-            //console.log('finally in fetch writepost')
+            //console.log('finally in fetch update post')
             setLoading(false);
         }
     }
@@ -213,17 +213,15 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
             //console.log(error)
             setError(error);
         }finally{
-            //console.log('finally in fetch writepost')
+            //console.log('finally in fetch delete post')
             setLoading(false);
         }
     }
     fetchData();
 }
 
-export const fetchSubmitComment = (commentSubmit, setCommentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus) => {
+export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus) => {
     setLoadingSubmit(true);
-    setCommentSubmit({...commentSubmit, timestamp: new Date()})
-    //console.log(commentSubmit)
     const fetchData = async () => {
         try{
             const res = await fetch('/techy-blog/api/comments',{
@@ -249,8 +247,39 @@ export const fetchSubmitComment = (commentSubmit, setCommentSubmit, setErrorSubm
             console.log(error)
             setErrorSubmit(error);
         }finally{
-            //console.log('finally in fetch writepost')
+            //console.log('finally in fetch submitcomment')
             setLoadingSubmit(false);
+        }
+    }
+    fetchData();
+}
+
+export const fetchDeleteComment = (comment, setError, setLoading, setStatus) => {
+    setLoading(true);
+    const fetchData = async () => {
+        try{
+            const res = await fetch('/techy-blog/api/delete-comment',{
+                method: "POST",
+                mode: 'cors',
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    commentId: comment._id,
+                }),
+    
+            })
+            const response = await res.json();
+            //console.log(response)
+            setStatus(response)
+        }catch(error){
+            //console.log(error)
+            setError(error);
+        }finally{
+            //console.log('finally in fetch delete comment')
+            setLoading(false);
         }
     }
     fetchData();

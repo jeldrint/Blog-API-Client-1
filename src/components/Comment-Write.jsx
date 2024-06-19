@@ -21,7 +21,7 @@ const WriteComment = ({user, postId, displayComments, setDisplayComments}) => {
     const handleSubmitComment = (e) => {
         setShowCommentForm(false)
         setDisplayComments([...displayComments,commentSubmit])
-        fetchSubmitComment(commentSubmit, setCommentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus)
+        fetchSubmitComment(commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus)
         e.preventDefault();
     }
 

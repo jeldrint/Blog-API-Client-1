@@ -105,11 +105,16 @@ June 10 - June 16
 June 17 - June 23
 - 
     * linisin yung comments and other elements ☑️
-    * delete comments
+    * delete comments☑️
+    * progress 90%
 
 * June 17
     - comment section complete
 
 * June 19
     * delete comments
-        -   (ADMIN) hovering on the comment section and then show the delete button
+        -   (ADMIN) hovering on the comment section and then show the delete button❌
+            * I just showed up the button
+    * comments done (progress 90%)
+        - everything looks fine
+        - only missing JWTS / publish - unpublish / some things to finalize the code
