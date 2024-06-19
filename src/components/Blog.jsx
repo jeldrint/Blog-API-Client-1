@@ -75,6 +75,7 @@ const Blog = ({mainData, setBlogPost}) => {
                             <br />
                             <p className="whitespace-pre-wrap text-sm md:text-[15px] lg:text-base">{post.body}</p>
                             <br />
+                            <DisplayComment displayComments={displayComments} postId={post} />
                             <button onClick={()=>navigate('/techy-blog/log-in')} className="text-sm rounded-md py-[6px] px-2 bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">ADD A COMMENT</button>
                         </div>
                     )

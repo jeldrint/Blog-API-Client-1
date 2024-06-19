@@ -38,7 +38,7 @@ const WritePost = ({mainData}) => {
                 <p className="mb-4 text-slate-500 text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold italic">Write post here...</p>
                 <div>
                     <input required onChange={handleChange} name="title" placeholder="Enter a title..." className="mb-2 w-full border border-slate-500 rounded-md p-2"  />
-                    <textarea required onChange={handleChange} name="message"  placeholder="Enter text..." className="mb-4 resize-none w-full min-h-80 whitespace-pre border border-slate-500 rounded-md p-2"></textarea>
+                    <textarea required onChange={handleChange} name="message"  placeholder="Enter text..." className="mb-4 resize-none w-full min-h-80 whitespace-pre border text-wrap border-slate-500 rounded-md p-2"></textarea>
                 </div>
                 <button className="text-sm rounded-md px-3 py-[6px] bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">Submit</button>
             </form>

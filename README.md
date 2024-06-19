@@ -104,7 +104,12 @@ June 10 - June 16
 
 June 17 - June 23
 - 
-    * linisin yung comments and other elements
+    * linisin yung comments and other elements ☑️
+    * delete comments
 
 * June 17
     - comment section complete
+
+* June 19
+    * delete comments
+        -   (ADMIN) hovering on the comment section and then show the delete button
