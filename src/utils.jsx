@@ -284,3 +284,34 @@ export const fetchDeleteComment = (comment, setError, setLoading, setStatus) => 
     }
     fetchData();
 }
+
+export const fetchPublish = (postId, isPostPublished, setError, setLoading, setPublishStatus) => {
+    const fetchData = async () => {
+        try{
+            const res = await fetch('/techy-blog/api/publish-post',{
+                method: "POST",
+                mode: 'cors',
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+    
+                body: JSON.stringify({
+                    postId: postId,
+                    isPostPublished: !isPostPublished,
+                }),
+    
+            })
+            const response = await res.json();
+            console.log(response)
+            setPublishStatus(response)
+        }catch(error){
+            //console.log(error)
+            setError(error);
+        }finally{
+            //console.log('finally in fetch delete comment')
+            setLoading(false);
+        }
+    }
+    fetchData();
+}

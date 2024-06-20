@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import WriteComment from "./Comment-Write";
 import DisplayComment from "./Comment-Display";
+import PublishPost from "./Post-Publish";
 
 const Blog = ({mainData, setBlogPost}) => {
     const {id} = useParams()
@@ -53,15 +54,8 @@ const Blog = ({mainData, setBlogPost}) => {
                                 <DisplayComment user={mainData.user} displayComments={displayComments} setDisplayComments={setDisplayComments} postId={post} />
                                 <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} />
                             </div>
-                            {mainData.user.isAdmin && post.isPublished ?
-                                <div className="flex mt-2 p-[5px] text-12px md:text-[14px] bg-sky-500 text-neutral-50 rounded-md shadow-lg">
-                                    <p>This post is published.&emsp;</p>
-                                    <button className="transition-colors hover:text-neutral-300 active:text-neutral-400">Unpublish?</button>
-                                </div>:
-                                <div className="flex mt-2 p-[5px] text-12px md:text-[14px] bg-sky-600 text-neutral-50 rounded-md shadow-lg">
-                                    <p>This post is unpublished.</p> 
-                                    <button className="transition-colors hover:text-neutral-300 active:text-neutral-400">Publish?</button>
-                                </div>
+                            {mainData.user.isAdmin &&
+                                <PublishPost postId={post._id} isPublished={post.isPublished} />
                             }
                         </div>
                     )
@@ -71,10 +65,11 @@ const Blog = ({mainData, setBlogPost}) => {
     }else{
         return(
             <div className="h-full w-full p-4">
-                {mainData.posts.map(post => {
+                {   mainData.posts.map(post => {
                     const timestamp = new Date(post.timestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
                     const updatedTimestamp = new Date(post.updatedTimestamp).toLocaleDateString('en-US',{year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
                     return(
+                        post.isPublished &&
                         <div key={post._id} className="font-varelaRound mx-2 mb-10 p-6 rounded-md shadow-lg border-2 flex-col">
                             <div>
                                 <div className="font-varela font-bold tracking-wide text-xl md:text-2xl lg:text-3xl xl:text-4xl ">{post.title}</div>
@@ -89,6 +84,7 @@ const Blog = ({mainData, setBlogPost}) => {
                             <DisplayComment displayComments={displayComments} setDisplayComments={setDisplayComments} postId={post} />
                             <button onClick={()=>navigate('/techy-blog/log-in')} className="text-sm rounded-md py-[6px] px-2 bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">ADD A COMMENT</button>
                         </div>
+                        
                     )
                 })}
             </div>
