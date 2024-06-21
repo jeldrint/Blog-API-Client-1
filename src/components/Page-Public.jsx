@@ -3,7 +3,7 @@ import DisplayComment from "./Comment-Display"
 
 const PublicPage = ({mainData, displayComments, setDisplayComments}) => {
     const navigate = useNavigate();
-    
+
     return(
         <div className="h-full w-full p-4">
             {   mainData.posts.map(post => {

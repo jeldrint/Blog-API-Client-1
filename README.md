@@ -108,6 +108,7 @@ June 17 - June 23
     * delete comments☑️
     * comments done
     * progress 90%
+    * JWT 
 
 * June 17
     - comment section complete
@@ -126,4 +127,6 @@ June 17 - June 23
 * June 21
     * separated the blog into 3 different components (Admin, Members, and public) ☑️
     * working on publish / unpublish post
-        - this is already done, just fixing the logic
+        - this is already done, just fixing the logic ☑️
+
+    * working on JWT 

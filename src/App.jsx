@@ -19,7 +19,7 @@ const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLo
     if (errorMain) return <p>A network error was encountered</p>
 
     return (
-      <div className='h-full w-full flex flex-col justify-between items-center'>
+      <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
         <Header mainData={mainData} loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
         <Blog mainData={mainData} setBlogPost={setBlogPost} />
         <Footer />
