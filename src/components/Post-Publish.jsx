@@ -10,7 +10,6 @@ const PublishPost = ({postId, isPublished}) => {
     const handlePublish = (e) => {
         setIsPostPublished(true)
         fetchPublish(postId, isPostPublished, setError, setLoading, setPublishStatus);
-
     }
     
     const handleUnpublish = (e) => {

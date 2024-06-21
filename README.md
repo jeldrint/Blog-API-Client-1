@@ -121,3 +121,7 @@ June 17 - June 23
     
 * June 20
     * working on publish / unpublish post
+
+* June 21
+    * separated the blog into 3 different components (Admin, Members, and public)
+    * working on publish / unpublish post

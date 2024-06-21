@@ -303,7 +303,7 @@ export const fetchPublish = (postId, isPostPublished, setError, setLoading, setP
     
             })
             const response = await res.json();
-            console.log(response)
+            //console.log(response)
             setPublishStatus(response)
         }catch(error){
             //console.log(error)
