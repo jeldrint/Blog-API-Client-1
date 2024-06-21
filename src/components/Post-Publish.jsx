@@ -8,14 +8,9 @@ const PublishPost = ({postId, isPublished}) => {
     const [publishStatus, setPublishStatus] = useState({});
 
     const handlePublish = (e) => {
-        setIsPostPublished(true)
         fetchPublish(postId, isPostPublished, setError, setLoading, setPublishStatus);
     }
-    
-    const handleUnpublish = (e) => {
-        setIsPostPublished(false)
-        fetchPublish(postId, isPostPublished, setError, setLoading, setPublishStatus);
-    }
+
 
     if(error) {return <p>Publish setting error. Please contact customer support. </p>}
     if(loading){return <p>Changing the settings.. please wait. </p>}
@@ -25,13 +20,13 @@ const PublishPost = ({postId, isPublished}) => {
             { isPostPublished ?
                 <div className="flex mt-2 p-[5px] text-[12px] sm:text-[13px] md:text-[14px] bg-sky-500 text-neutral-100 rounded-md shadow-lg">
                     <p>This post is&ensp;<strong className="text-green-800">published</strong>&ensp;in the public.&emsp;</p>
-                    <button onClick={handleUnpublish} className="transition-colors hover:text-neutral-300 active:text-neutral-400">Unpublish?</button>
+                    <button onClickCapture={()=> setIsPostPublished(false)} onClick={handlePublish} className="transition-colors hover:text-neutral-300 active:text-neutral-400">Unpublish?</button>
                 </div> :
                 <div className="flex mt-2 p-[5px] text-[12px] sm:text-[13px] md:text-[14px] bg-sky-500 text-neutral-100 rounded-md shadow-lg">
                     <p>This post is&ensp;<strong className="text-red-800">not published</strong>&ensp;in the public.&emsp;</p>
-                    <button onClick={handlePublish} className="underline transition-colors hover:text-neutral-300 active:text-neutral-400">Publish?</button>
+                    <button onClickCapture={()=> setIsPostPublished(true)} onClick={handlePublish} className="underline transition-colors hover:text-neutral-300 active:text-neutral-400">Publish?</button>
                 </div>
-        }
+            }
         </>
     )
 

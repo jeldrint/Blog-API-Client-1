@@ -13,7 +13,7 @@ const Header = ({mainData, loginStatus, setLoginStatus}) => {
 
     if (mainData.user) {
         return(
-        <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between font-myFont bg-slate-300">
+        <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between bg-slate-300">
             <div className='text-slate-600 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-varela'>
                 <span>Techy</span>
                 <span className='text-sky-600'>Blog</span>
@@ -26,8 +26,8 @@ const Header = ({mainData, loginStatus, setLoginStatus}) => {
         )
     }else{
         return (
-            <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between font-myFont bg-slate-300">
-                <div className='text-slate-600 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold'>
+            <header className="w-full px-5 py-9 md:p-8 lg:p-9 flex items-center justify-between bg-slate-300">
+                <div className='text-slate-600 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-varela'>
                     <span>Techy</span>
                     <span className='text-sky-600'>Blog</span>
                 </div>

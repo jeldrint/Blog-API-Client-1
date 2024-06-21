@@ -106,6 +106,7 @@ June 17 - June 23
 - 
     * linisin yung comments and other elements ☑️
     * delete comments☑️
+    * comments done
     * progress 90%
 
 * June 17
@@ -123,5 +124,6 @@ June 17 - June 23
     * working on publish / unpublish post
 
 * June 21
-    * separated the blog into 3 different components (Admin, Members, and public)
+    * separated the blog into 3 different components (Admin, Members, and public) ☑️
     * working on publish / unpublish post
+        - this is already done, just fixing the logic

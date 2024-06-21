@@ -298,7 +298,7 @@ export const fetchPublish = (postId, isPostPublished, setError, setLoading, setP
     
                 body: JSON.stringify({
                     postId: postId,
-                    isPostPublished: !isPostPublished,
+                    isPostPublished: isPostPublished,
                 }),
     
             })

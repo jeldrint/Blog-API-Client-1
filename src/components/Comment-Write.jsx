@@ -32,7 +32,7 @@ const WriteComment = ({user, postId, displayComments, setDisplayComments}) => {
         <>
             { showCommentForm ?
                 <form onSubmit={handleSubmitComment}>
-                    <textarea required onChange={handleChangeComment} name="comment-bar"  placeholder="Enter comment..." className="mb-4 resize-none w-full h-20 whitespace-pre border border-slate-500 rounded-md p-2"></textarea>
+                    <textarea required onChange={handleChangeComment} name="comment-bar"  placeholder="Enter comment..." className="mb-4 text-wrap resize-none w-full h-20 whitespace-pre border border-slate-500 rounded-md p-2"></textarea>
                     <div className="flex gap-x-2">
                         <button onClick={(e)=>{setShowCommentForm(false); e.preventDefault();}} className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">Cancel</button>
                         <button className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">Submit</button>
