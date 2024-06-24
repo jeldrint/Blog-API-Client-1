@@ -3,7 +3,7 @@ import { useState } from "react";
 export const useToken = () => {
     const getToken = () => {
         const token = localStorage.getItem('token')
-        console.log('getItem', token)
+        //console.log('getItem', token)
         return token
     }
 
@@ -12,7 +12,7 @@ export const useToken = () => {
 
     const saveToken = (token) => {
         localStorage.setItem('token', token)
-        console.log('setItem')
+        //console.log('setItem', token)
         setToken(token)
     }
     return {

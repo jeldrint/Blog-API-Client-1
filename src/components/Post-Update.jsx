@@ -3,7 +3,7 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { fetchUpdatePost } from "../utils";
 
 
-const UpdatePost = ({mainData, blogPost}) => {
+const UpdatePost = ({mainData, blogPost, token}) => {
     const {id, postId} = useParams();
     const [data, setData] = useState({postId: postId, title: blogPost.title, message: blogPost.body, userId: mainData.user})
     const [error, setError] = useState(null);
@@ -25,7 +25,7 @@ const UpdatePost = ({mainData, blogPost}) => {
     }
 
     const handleSubmit = (e) => {
-        fetchUpdatePost(data, setError, setLoading, setUpdatePostStatus);
+        fetchUpdatePost(data, setError, setLoading, setUpdatePostStatus, token);
         e.preventDefault();
     }
 

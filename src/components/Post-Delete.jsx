@@ -3,14 +3,14 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { fetchDeletePost } from "../utils";
 
 
-const DeletePost = ({blogPost}) => {
+const DeletePost = ({blogPost, token}) => {
     const {id, postId} = useParams();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [deletePostStatus, setDeletePostStatus] = useState({});
 
     const handleSubmit = (e) => {
-        fetchDeletePost(postId, setError, setLoading, setDeletePostStatus);
+        fetchDeletePost(postId, setError, setLoading, setDeletePostStatus, token);
         e.preventDefault();
     }
 

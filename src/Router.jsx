@@ -48,11 +48,11 @@ const Router = () => {
         },
         {
             path: '/techy-blog/:id/update-post/:postId',
-            element: <UpdatePost mainData={mainData} blogPost={blogPost} />,
+            element: <UpdatePost mainData={mainData} blogPost={blogPost} token={token} />,
         },
         {
             path: '/techy-blog/:id/delete-post/:postId',
-            element: <DeletePost blogPost={blogPost} />,
+            element: <DeletePost blogPost={blogPost} token={token} />,
         },
 
     ])

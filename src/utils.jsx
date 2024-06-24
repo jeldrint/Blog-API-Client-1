@@ -40,7 +40,7 @@ export const fetchLogin = (userData, setError, setLoading, setLoginStatus, setTo
     
             })
             const response = await data.json();
-            console.log(response)
+            //console.log(response)
             setLoginStatus(response.status)
             setToken(response.token)
 
@@ -133,16 +133,15 @@ export const fetchWritePost = (data, setError, setLoading, setWritePostStatus, t
                     title: data.title,
                     message: data.message,
                     userId: data.userId,
-                    token
                 }),
     
             })
             const response = await res.json();
-            console.log(response)
+            //console.log(response)
             setWritePostStatus(response)
 
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch writepost')
@@ -153,7 +152,7 @@ export const fetchWritePost = (data, setError, setLoading, setWritePostStatus, t
 }
 
 
-export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus) => {
+export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus, token) => {
     setLoading(true);
     //console.log(data)
 
@@ -164,7 +163,8 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus)
                 mode: 'cors',
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
     
                 body: JSON.stringify({
@@ -176,11 +176,11 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus)
     
             })
             const response = await res.json();
-            //console.log(response)
+            console.log(response)
             setUpdatePostStatus(response)
 
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch update post')
@@ -191,7 +191,7 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus)
 }
 
 
-export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatus) => {
+export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatus, token) => {
     setLoading(true);
     const fetchData = async () => {
         try{
@@ -200,7 +200,8 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
                 mode: 'cors',
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
     
                 body: JSON.stringify({
@@ -209,11 +210,11 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
     
             })
             const response = await res.json();
-            //console.log(response)
+            console.log(response)
             setUpdatePostStatus(response)
 
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch delete post')
