@@ -3,6 +3,7 @@ import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './components/Log-in'
 import SignUp from './components/Sign-up'
 import { useState } from 'react';
+import { useToken } from './useToken';
 
 import WritePost from './components/Post-Write';
 import UpdatePost from './components/Post-Update';
@@ -15,8 +16,7 @@ const Router = () => {
     const [loadingMain, setLoadingMain] = useState(true);
     const [loginStatus, setLoginStatus] = useState('');
     const [blogPost, setBlogPost] = useState({});
-    
-
+    const {token, setToken} = useToken()
     const router = createBrowserRouter([
         {
             path: '/',
@@ -30,7 +30,7 @@ const Router = () => {
         },
         {
             path: '/techy-blog/log-in',
-            element: <Login loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
+            element: <Login loginStatus={loginStatus} setLoginStatus={setLoginStatus} setToken={setToken} />
         },
         {
             path: '/techy-blog/sign-up',
@@ -40,11 +40,11 @@ const Router = () => {
         //This is Members / Admins Page
         {
             path: '/techy-blog/:id',
-            element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} setBlogPost={setBlogPost} />,
+            element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} setBlogPost={setBlogPost} setToken={setToken}  />,
         },
         {
             path: '/techy-blog/:id/write-post',
-            element: <WritePost mainData={mainData} />,
+            element: <WritePost mainData={mainData} token={token} />,
         },
         {
             path: '/techy-blog/:id/update-post/:postId',

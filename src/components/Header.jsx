@@ -1,9 +1,10 @@
 import { Link, Navigate } from "react-router-dom";
 import { fetchLogout } from "../utils";
 
-const Header = ({mainData, loginStatus, setLoginStatus}) => {
+const Header = ({mainData, loginStatus, setLoginStatus, setToken}) => {
 
     const handleLogout = () => {
+        setToken(null);
         fetchLogout(setLoginStatus)
     }
 

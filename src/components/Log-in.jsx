@@ -3,7 +3,7 @@ import { fetchLogin } from "../utils"
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 
-const Login = ({loginStatus, setLoginStatus}) => {
+const Login = ({loginStatus, setLoginStatus, setToken}) => {
     const [userData, setUserData] = useState({username: '', password: ''})
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const Login = ({loginStatus, setLoginStatus}) => {
     }
 
     const handleSubmit = (e) => {
-        fetchLogin(userData, setError, setLoading, setLoginStatus);
+        fetchLogin(userData, setError, setLoading, setLoginStatus, setToken);
         e.preventDefault();
     }
     if(error) {return <p>Login error. Please contact customer support. </p>}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { fetchWritePost } from "../utils";
 
-const WritePost = ({mainData}) => {
+const WritePost = ({mainData, token}) => {
     const {id} = useParams();
     const [data, setData] = useState({title: '', message: '', userId: mainData.user})
     const [error, setError] = useState(null);
@@ -24,7 +24,7 @@ const WritePost = ({mainData}) => {
 
 
     const handleSubmit = (e) => {
-        fetchWritePost(data, setError, setLoading, setWritePostStatus);
+        fetchWritePost(data, setError, setLoading, setWritePostStatus, token);
         e.preventDefault();
     }
 

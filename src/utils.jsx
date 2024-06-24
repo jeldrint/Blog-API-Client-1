@@ -20,7 +20,7 @@ export const fetchMainData = (setData, setError, setLoading) => {
     },[]) 
 }
 
-export const fetchLogin = (userData, setError, setLoading, setLoginStatus) => {
+export const fetchLogin = (userData, setError, setLoading, setLoginStatus, setToken) => {
     setLoading(true);
 
     const fetchData = async () => {
@@ -40,8 +40,9 @@ export const fetchLogin = (userData, setError, setLoading, setLoginStatus) => {
     
             })
             const response = await data.json();
-            //console.log('login status triggered')
+            console.log(response)
             setLoginStatus(response.status)
+            setToken(response.token)
 
         }catch(error){
             //console.log(error)
@@ -114,7 +115,7 @@ export const fetchSignup = (userData, setError, setLoading, setSignUpStatus) => 
     fetchData();
 }
 
-export const fetchWritePost = (data, setError, setLoading, setWritePostStatus) => {
+export const fetchWritePost = (data, setError, setLoading, setWritePostStatus, token) => {
     setLoading(true);
 
     const fetchData = async () => {
@@ -124,22 +125,24 @@ export const fetchWritePost = (data, setError, setLoading, setWritePostStatus) =
                 mode: 'cors',
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
     
                 body: JSON.stringify({
                     title: data.title,
                     message: data.message,
-                    userId: data.userId
+                    userId: data.userId,
+                    token
                 }),
     
             })
             const response = await res.json();
-            //console.log(response)
+            console.log(response)
             setWritePostStatus(response)
 
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch writepost')
