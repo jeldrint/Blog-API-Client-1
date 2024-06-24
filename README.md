@@ -129,4 +129,10 @@ June 17 - June 23
     * working on publish / unpublish post
         - this is already done, just fixing the logic ☑️
 
-    * working on JWT 
+    * working on JWT
+
+* June 23
+    * JWT: already implemented initially
+
+* June 24
+    * JWT: given on log-in and is used in writing posts
