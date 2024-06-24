@@ -3,7 +3,7 @@ import WriteComment from "./Comment-Write";
 import PublishPost from "./Post-Publish";
 import { useParams, useNavigate } from "react-router-dom"
 
-const AdminPage = ({mainData, setBlogPost, displayComments, setDisplayComments}) => {
+const AdminPage = ({mainData, setBlogPost, displayComments, setDisplayComments, token}) => {
     const {id} = useParams()
     const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const AdminPage = ({mainData, setBlogPost, displayComments, setDisplayComments})
                             <DisplayComment user={mainData.user} displayComments={displayComments} setDisplayComments={setDisplayComments} postId={post} />
                             <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} />
                         </div>
-                        <PublishPost postId={post._id} isPublished={post.isPublished} />
+                        <PublishPost postId={post._id} isPublished={post.isPublished} token={token} />
                     </div>
                 )
             })}

@@ -210,11 +210,11 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
     
             })
             const response = await res.json();
-            console.log(response)
+            //console.log(response)
             setUpdatePostStatus(response)
 
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch delete post')
@@ -289,7 +289,7 @@ export const fetchDeleteComment = (comment, setError, setLoading, setStatus) => 
     fetchData();
 }
 
-export const fetchPublish = (postId, isPostPublished, setError, setLoading, setPublishStatus) => {
+export const fetchPublish = (postId, isPostPublished, setError, setLoading, setPublishStatus, token) => {
     const fetchData = async () => {
         try{
             const res = await fetch('/techy-blog/api/publish-post',{
@@ -297,7 +297,8 @@ export const fetchPublish = (postId, isPostPublished, setError, setLoading, setP
                 mode: 'cors',
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
     
                 body: JSON.stringify({
@@ -307,10 +308,10 @@ export const fetchPublish = (postId, isPostPublished, setError, setLoading, setP
     
             })
             const response = await res.json();
-            //console.log(response)
+            console.log(response)
             setPublishStatus(response)
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch delete comment')

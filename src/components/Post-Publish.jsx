@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { fetchPublish } from "../utils";
 
-const PublishPost = ({postId, isPublished}) => {
+const PublishPost = ({postId, isPublished, token}) => {
     const [isPostPublished, setIsPostPublished] = useState(isPublished);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [publishStatus, setPublishStatus] = useState({});
 
     const handlePublish = (e) => {
-        fetchPublish(postId, isPostPublished, setError, setLoading, setPublishStatus);
+        fetchPublish(postId, isPostPublished, setError, setLoading, setPublishStatus, token);
     }
 
 

@@ -40,7 +40,7 @@ const Router = () => {
         //This is Members / Admins Page
         {
             path: '/techy-blog/:id',
-            element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} setBlogPost={setBlogPost} setToken={setToken}  />,
+            element: <App mainData={mainData} errorMain={errorMain} loadingMain={loadingMain} setMainData={setMainData} setErrorMain={setErrorMain} setLoadingMain={setLoadingMain} loginStatus={loginStatus} setLoginStatus={setLoginStatus} setBlogPost={setBlogPost} setToken={setToken} token={token} />,
         },
         {
             path: '/techy-blog/:id/write-post',
