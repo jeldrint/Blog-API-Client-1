@@ -176,11 +176,11 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus,
     
             })
             const response = await res.json();
-            console.log(response)
+            //console.log(response)
             setUpdatePostStatus(response)
 
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch update post')
@@ -224,7 +224,7 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
     fetchData();
 }
 
-export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus) => {
+export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus, token) => {
     setLoadingSubmit(true);
     const fetchData = async () => {
         try{
@@ -233,7 +233,8 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
                 mode: 'cors',
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
     
                 body: JSON.stringify({
@@ -248,7 +249,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
             //console.log(response)
             setCommentSubmitStatus(response)
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setErrorSubmit(error);
         }finally{
             //console.log('finally in fetch submitcomment')
@@ -258,7 +259,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
     fetchData();
 }
 
-export const fetchDeleteComment = (comment, setError, setLoading, setStatus) => {
+export const fetchDeleteComment = (comment, setError, setLoading, setStatus, token) => {
     setLoading(true);
     const fetchData = async () => {
         try{
@@ -267,7 +268,8 @@ export const fetchDeleteComment = (comment, setError, setLoading, setStatus) => 
                 mode: 'cors',
 
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
                 },
     
                 body: JSON.stringify({
@@ -308,10 +310,10 @@ export const fetchPublish = (postId, isPostPublished, setError, setLoading, setP
     
             })
             const response = await res.json();
-            console.log(response)
+            //console.log(response)
             setPublishStatus(response)
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch delete comment')

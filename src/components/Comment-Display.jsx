@@ -1,6 +1,6 @@
 import DeleteComment from "./Comment-Delete";
 
-const DisplayComment = ({user, displayComments, setDisplayComments, postId}) => {
+const DisplayComment = ({user, displayComments, setDisplayComments, postId, token}) => {
 
     if(!user){
         return (
@@ -31,7 +31,7 @@ const DisplayComment = ({user, displayComments, setDisplayComments, postId}) => 
                                     <p className="text-xs md:text-sm lg:text-base text-amber-900">{item.comment}</p>
                                 </div>
                                 { user.isAdmin &&
-                                    <DeleteComment displayComments={displayComments} setDisplayComments={setDisplayComments} comment={item} />
+                                    <DeleteComment displayComments={displayComments} setDisplayComments={setDisplayComments} comment={item} token={token} />
                                 }
                             </div>
                         )

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fetchDeleteComment } from "../utils";
 
-const DeleteComment = ({displayComments, setDisplayComments, comment}) => {
+const DeleteComment = ({displayComments, setDisplayComments, comment, token}) => {
     const [deleteBtn, setDeleteBtn] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -10,7 +10,7 @@ const DeleteComment = ({displayComments, setDisplayComments, comment}) => {
     const handleDeleteComment = (e) => {
         setDeleteBtn(false);
         setDisplayComments(displayComments.filter(displayComment => displayComment._id != comment._id))
-        fetchDeleteComment(comment, setError, setLoading, setStatus)
+        fetchDeleteComment(comment, setError, setLoading, setStatus, token)
         e.preventDefault();
     }
 

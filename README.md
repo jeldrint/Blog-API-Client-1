@@ -137,3 +137,6 @@ June 17 - June 23
 * June 24
     * JWT: given on log-in and is used in writing posts
     * JWT implemented also in update and delete posts
+
+* June 25
+    * done with JWT implementation on every component

@@ -1,7 +1,7 @@
 import DisplayComment from "./Comment-Display";
 import WriteComment from "./Comment-Write";
 
-const MembersPage = ({mainData, displayComments, setDisplayComments}) => {
+const MembersPage = ({mainData, displayComments, setDisplayComments, token}) => {
     return(
         <div className="h-full w-full p-4">
             {mainData.posts.map(post => {
@@ -21,7 +21,7 @@ const MembersPage = ({mainData, displayComments, setDisplayComments}) => {
                             <br />
                             <p className="font-roboto font-light whitespace-pre-wrap text-sm md:text-base lg:text-[17px] mb-3">{post.body}</p>
                             <DisplayComment user={mainData.user} displayComments={displayComments} setDisplayComments={setDisplayComments} postId={post} />
-                            <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} />
+                            <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} token={token} />
                         </div>
                     </div>
                 )

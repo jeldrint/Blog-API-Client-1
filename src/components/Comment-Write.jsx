@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { fetchSubmitComment } from "../utils";
 
-const WriteComment = ({user, postId, displayComments, setDisplayComments}) => {
+const WriteComment = ({user, postId, displayComments, setDisplayComments, token}) => {
     const [showCommentForm, setShowCommentForm] = useState(false);
     const [commentSubmit, setCommentSubmit] = useState({comment: '', timestamp: '', userId: user, postId: postId});
     const [errorSubmit, setErrorSubmit] = useState(null);
@@ -21,7 +21,7 @@ const WriteComment = ({user, postId, displayComments, setDisplayComments}) => {
     const handleSubmitComment = (e) => {
         setShowCommentForm(false)
         setDisplayComments([...displayComments,commentSubmit])
-        fetchSubmitComment(commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus)
+        fetchSubmitComment(commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus, token)
         e.preventDefault();
     }
 
