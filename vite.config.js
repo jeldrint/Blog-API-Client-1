@@ -12,7 +12,7 @@ export default defineConfig({
     },
     server: {
       proxy: {
-          "/techy-blog/api": "http://localhost:3000/"
+          "/techy-blog/api": "https://blog-api-server-26kg.onrender.com"
       }
     }
   })
