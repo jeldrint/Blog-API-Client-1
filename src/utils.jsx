@@ -261,6 +261,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
 
 export const fetchDeleteComment = (comment, setError, setLoading, setStatus, token) => {
     setLoading(true);
+    console.log(comment)
     const fetchData = async () => {
         try{
             const res = await fetch('/techy-blog/api/delete-comment',{
@@ -278,10 +279,10 @@ export const fetchDeleteComment = (comment, setError, setLoading, setStatus, tok
     
             })
             const response = await res.json();
-            //console.log(response)
+            console.log(response)
             setStatus(response)
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch delete comment')

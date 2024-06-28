@@ -22,7 +22,7 @@ const PublicPage = ({mainData, displayComments, setDisplayComments}) => {
                         <br />
                         <p className="font-roboto font-light whitespace-pre-wrap text-sm md:text-[15px] lg:text-base">{post.body}</p>
                         <br />
-                        <DisplayComment displayComments={displayComments} setDisplayComments={setDisplayComments} postId={post} />
+                        <DisplayComment displayComments={displayComments} postId={post} />
                         <button onClick={()=>navigate('/techy-blog/log-in')} className="text-sm rounded-md py-[6px] px-2 bg-sky-500 transition duration-200 hover:bg-sky-600 text-neutral-50">ADD A COMMENT</button>
                     </div>
                     
