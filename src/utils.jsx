@@ -224,7 +224,7 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
     fetchData();
 }
 
-export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus, token) => {
+export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubmit, token, setCommentSubmitStatus) => {
     setLoadingSubmit(true);
     const fetchData = async () => {
         try{
@@ -249,11 +249,8 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
             //console.log(response)
             setCommentSubmitStatus(response)
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setErrorSubmit(error);
-        }finally{
-            //console.log('finally in fetch submitcomment')
-            setLoadingSubmit(false);
         }
     }
     fetchData();
@@ -261,7 +258,7 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
 
 export const fetchDeleteComment = (comment, setError, setLoading, setStatus, token) => {
     setLoading(true);
-    console.log(comment)
+    //console.log(comment)
     const fetchData = async () => {
         try{
             const res = await fetch('/techy-blog/api/delete-comment',{
@@ -279,10 +276,10 @@ export const fetchDeleteComment = (comment, setError, setLoading, setStatus, tok
     
             })
             const response = await res.json();
-            console.log(response)
+            //console.log(response)
             setStatus(response)
         }catch(error){
-            console.log(error)
+            //console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch delete comment')

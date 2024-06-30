@@ -140,3 +140,8 @@ June 17 - June 23
 
 * June 25
     * done with JWT implementation on every component
+
+* June 30
+    * Bug in submitting and deleting comment now fixed / Project complete (100%)
+        - doesn't need to render the App component just to manipulate the comments 
+        - i need to do some work around the api.js in order to solve the bug

@@ -21,7 +21,7 @@ const MembersPage = ({mainData, displayComments, setDisplayComments, token}) => 
                             <br />
                             <p className="font-roboto font-light whitespace-pre-wrap text-sm md:text-base lg:text-[17px] mb-3">{post.body}</p>
                             <DisplayComment user={mainData.user} displayComments={displayComments} setDisplayComments={setDisplayComments} postId={post} />
-                            <WriteComment user={mainData.user} postId={post} displayComments={displayComments} setDisplayComments={setDisplayComments} token={token} />
+                            <WriteComment user={mainData.user} postId={post} setDisplayComments={setDisplayComments} token={token} />
                         </div>
                     </div>
                 )

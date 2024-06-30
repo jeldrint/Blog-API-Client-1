@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchSubmitComment } from "../utils";
 
-const WriteComment = ({user, postId, displayComments, setDisplayComments, token}) => {
+const WriteComment = ({user, postId, setDisplayComments, token}) => {
     const [showCommentForm, setShowCommentForm] = useState(false);
     const [commentSubmit, setCommentSubmit] = useState({comment: '', timestamp: '', userId: user, postId: postId});
     const [errorSubmit, setErrorSubmit] = useState(null);
@@ -20,10 +20,18 @@ const WriteComment = ({user, postId, displayComments, setDisplayComments, token}
 
     const handleSubmitComment = (e) => {
         setShowCommentForm(false)
-        setDisplayComments([...displayComments,commentSubmit])
-        fetchSubmitComment(commentSubmit, setErrorSubmit, setLoadingSubmit, setCommentSubmitStatus, token)
+        fetchSubmitComment(commentSubmit, setErrorSubmit, setLoadingSubmit, token, setCommentSubmitStatus)
         e.preventDefault();
     }
+
+    useEffect(()=> {
+        //console.log('useeffect')
+        if(commentSubmitStatus.commentNewInfo){
+            setDisplayComments(prev => [...prev, commentSubmitStatus.commentNewInfo])
+            setLoadingSubmit(false)
+        }
+    },[commentSubmitStatus])
+
 
     if(errorSubmit) {return <p>Comment submission error. Please contact customer support. </p>}
     if(loadingSubmit){return <p>Submitting comment.. please wait. </p>}
