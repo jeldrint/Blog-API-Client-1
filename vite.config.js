@@ -14,7 +14,10 @@ export default defineConfig({
     },
     server: {
       proxy: {
-        "/techy-blog/api": "https://blog-api-server-26kg.onrender.com/"
+        "/techy-blog/api": {
+            target: "https://blog-api-server-26kg.onrender.com/",
+            rewrite: path => path.replace(/^\/api/, ''),
+        }
         //"/techy-blog/api": "http://localhost:3000/"
       }
     }
