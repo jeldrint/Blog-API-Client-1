@@ -1,5 +1,5 @@
 import App from './App'
-import { Navigate, RouterProvider, createHashRouter } from 'react-router-dom';
+import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Login from './components/Log-in'
 import SignUp from './components/Sign-up'
 import { useState } from 'react';
@@ -17,7 +17,7 @@ const Router = () => {
     const [loginStatus, setLoginStatus] = useState('');
     const [blogPost, setBlogPost] = useState({});
     const {token, setToken} = useToken()
-    const router = createHashRouter([
+    const router = createBrowserRouter([
         {
             path: '/',
             element: <Navigate to='/techy-blog' />,
