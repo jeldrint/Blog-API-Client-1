@@ -1,0 +1,4 @@
+[[redirects]]
+ from = "/techy-blog/api/*"
+ to = "https://blog-api-server-26kg.onrender.com/:splat"
+ status = 200
