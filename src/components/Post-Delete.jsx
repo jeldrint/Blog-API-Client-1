@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { fetchDeletePost } from "../utils";
+import { fetchDeletePost } from "../../utils";
 
 
 const DeletePost = ({blogPost, token}) => {

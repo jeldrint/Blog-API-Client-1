@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useState } from "react";
-import { fetchSignup } from "../utils";
+import { fetchSignup } from "../../utils";
 import { Navigate } from "react-router-dom";
 
 const Signup = () => {

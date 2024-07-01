@@ -2,7 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Blog from './components/Blog'
-import { fetchMainData } from './utils'
+import { fetchMainData } from '../utils'
 import { useEffect } from 'react'
 
 const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLoadingMain, loginStatus, setLoginStatus, setBlogPost, setToken, token}) => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchPublish } from "../utils";
+import { fetchPublish } from "../../utils";
 
 const PublishPost = ({postId, isPublished, token}) => {
     const [isPostPublished, setIsPostPublished] = useState(isPublished);

@@ -1,5 +1,5 @@
 import { Link, Navigate } from "react-router-dom";
-import { fetchLogout } from "../utils";
+import { fetchLogout } from "../../utils";
 
 const Header = ({mainData, loginStatus, setLoginStatus, setToken}) => {
 

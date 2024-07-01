@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchDeleteComment } from "../utils";
+import { fetchDeleteComment } from "../../utils";
 
 const DeleteComment = ({displayComments, setDisplayComments, comment, token}) => {
     const [deleteBtn, setDeleteBtn] = useState(null);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { fetchWritePost } from "../utils";
+import { fetchWritePost } from "../../utils";
 
 const WritePost = ({mainData, token}) => {
     const {id} = useParams();

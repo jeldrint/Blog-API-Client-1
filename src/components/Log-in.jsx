@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { fetchLogin } from "../utils"
+import { fetchLogin } from "../../utils"
 import { useState } from "react"
 import { Navigate } from "react-router-dom"
 

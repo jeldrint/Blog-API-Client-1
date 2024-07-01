@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchSubmitComment } from "../utils";
+import { fetchSubmitComment } from "../../utils";
 
 const WriteComment = ({user, postId, setDisplayComments, token}) => {
     const [showCommentForm, setShowCommentForm] = useState(false);
