@@ -1,10 +1,4 @@
 [[redirects]]
-force = true
-from = '/techy-blog/api/*'
-status = 200
-to = 'https://blog-api-server-26kg.onrender.com/:splat'
-
-[[redirects]]
 from = '/*'
 status = 200
 to = '/index.html'
