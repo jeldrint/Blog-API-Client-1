@@ -7,8 +7,9 @@ export default defineConfig({
     base: './',
     build: {
       manifest: true,
+      outDir: 'dist',
       rollupOptions: {
-          input: './src/main.jsx'
+          input: ['./src/main.jsx', './index.html']
       },
     },
     server: {
