@@ -1,5 +1,0 @@
-[[redirects]]
-    from= "/techy-blog/api*"
-    to= "https://blog-api-server-26kg.onrender.com/"
-    status= 200
-    force = true
