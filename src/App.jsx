@@ -16,7 +16,7 @@ const App = ({mainData, errorMain, loadingMain, setMainData, setErrorMain, setLo
 
     fetchMainData(setMainData, setErrorMain, setLoadingMain);
     if (loadingMain) return <p>Loading... Please wait</p>
-    //if (errorMain) return <p>A network error was encountered</p>
+    if (errorMain) return <p>A network error was encountered</p>
 
     return (
       <div className='min-h-screen h-full w-full flex flex-col justify-between items-center'>
