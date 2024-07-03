@@ -7,10 +7,11 @@ export const fetchMainData = (setData, setError, setLoading) => {
         try{
             const data = await fetch('/techy-blog/api', {mode: "cors"});
             const response = await data.json();
-            console.log(response)
+            //console.log(response)
             setData(response);
         }catch(error){
             //console.log('error main data')
+            console.log(error)
             setError(error)
         }finally{
             //console.log('finally main data')
