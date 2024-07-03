@@ -5,7 +5,7 @@ export const fetchMainData = (setData, setError, setLoading) => {
     useEffect(() => {
       const fetchData = async () => {
         try{
-            const data = await fetch('https://blog-api-server-26kg.onrender.com/', {mode: "cors"});
+            const data = await fetch('/techy-blog/api', {mode: "cors"});
             const response = await data.json();
             //console.log(response)
             setData(response);
