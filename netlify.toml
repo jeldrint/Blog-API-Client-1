@@ -2,14 +2,9 @@
 force = true
 from = '/techy-blog/api/*'
 status = 200
-to = 'https://blog-api-server-26kg.onrender.com/:splat'
+to = 'https://blog-api-server-26kg.onrender.com/techy-blog/api/:splat'
 
 [[redirects]]
 from = '/*'
 status = 200
 to = '/index.html'
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
