@@ -29,7 +29,7 @@ const Login = ({loginStatus, setLoginStatus, setToken}) => {
     //console.log('log-in')
     return (
         <div className="m-8">
-            {loginStatus === 'logged in' && <Navigate to={`/techy-blog/${userData.username}`} />}
+            {loginStatus.status === 'logged in' && <Navigate to={`/techy-blog/${loginStatus.authUser.user_name}`} />}
             <p className="font-myFont text-3xl">Please Log-in. </p>
             <br />
             <form onSubmit={handleSubmit}>

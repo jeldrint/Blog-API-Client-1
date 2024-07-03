@@ -43,11 +43,11 @@ export const fetchLogin = (userData, setError, setLoading, setLoginStatus, setTo
             })
             const response = await data.json();
             //console.log(response)
-            setLoginStatus(response.status)
+            setLoginStatus(response)
             setToken(response.token)
 
         }catch(error){
-            //console.log(error)
+            console.log(error)
             setError(error);
         }finally{
             //console.log('finally in fetch login')
