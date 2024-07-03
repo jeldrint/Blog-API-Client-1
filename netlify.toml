@@ -2,7 +2,7 @@
 force = true
 from = '/techy-blog/api/*'
 status = 200
-to = 'https://blog-api-server-26kg.onrender.com/api/:splat'
+to = 'https://blog-api-server-26kg.onrender.com/:splat'
 
 [[redirects]]
 from = '/*'
