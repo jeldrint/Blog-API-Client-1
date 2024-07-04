@@ -14,9 +14,9 @@ const PublicPage = ({mainData, displayComments, setDisplayComments}) => {
                     <div key={post._id} className="font-varelaRound mx-2 mb-10 p-6 rounded-md shadow-lg border-2 flex-col">
                         <div>
                             <div className="font-varela font-bold tracking-wide text-xl md:text-2xl lg:text-3xl xl:text-4xl ">{post.title}</div>
-                            <div className="text-xs lg:text-sm flex-col mt-[5px]">
-                                <div className='flex gap-x-[50px]'><span>BY: <strong><i>{post.userId.first_name} {post.userId.family_name}</i></strong></span> <span>Created: {timestamp}</span></div>
-                                { post.isUpdated && <div className='flex gap-x-4'><span>MODIFIED BY: <strong><i>{post.userIdUpdated.first_name} {post.userIdUpdated.family_name}</i></strong></span> <span>Created: {updatedTimestamp}</span></div> }
+                            <div className="grid grid-cols-2 gap-x-1 text-xs lg:text-sm flex-col mt-2">
+                                    <span>WRITTEN BY: <strong><i>{post.userId.first_name} {post.userId.family_name}</i></strong></span> <span>Created: {timestamp}</span>
+                                    { post.isUpdated && <><span>MODIFIED BY: <strong><i>{post.userIdUpdated.first_name} {post.userIdUpdated.family_name}</i></strong></span> <span>Modified: {updatedTimestamp}</span></> }
                             </div>
                         </div>
                         <br />

@@ -38,9 +38,9 @@ const AdminPage = ({mainData, setBlogPost, displayComments, setDisplayComments, 
                                         <button onClick={e=>handleDeletePostClick(e,post)} className="rounded py-1 px-3 bg-slate-500 transition duration-200 hover:bg-sky-600 text-neutral-50">DELETE</button>
                                     </div>
                                 </div>
-                                <div className="text-xs lg:text-sm flex-col mt-[5px]">
-                                    <div className='flex gap-x-[50px]'><span>BY: <strong><i>{post.userId.first_name} {post.userId.family_name}</i></strong></span> <span>Created: {timestamp}</span></div>
-                                    { post.isUpdated && <div className='flex gap-x-4'><span>MODIFIED BY: <strong><i>{post.userIdUpdated.first_name} {post.userIdUpdated.family_name}</i></strong></span> <span>Modified: {updatedTimestamp}</span></div> }
+                                <div className="grid grid-cols-2 gap-x-1 text-xs lg:text-sm flex-col mt-2">
+                                    <span>WRITTEN BY: <strong><i>{post.userId.first_name} {post.userId.family_name}</i></strong></span> <span>Created: {timestamp}</span>
+                                    { post.isUpdated && <><span>MODIFIED BY: <strong><i>{post.userIdUpdated.first_name} {post.userIdUpdated.family_name}</i></strong></span> <span>Modified: {updatedTimestamp}</span></> }
                                 </div>
                             </div>
                             <br />

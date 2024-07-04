@@ -20,7 +20,7 @@ const Header = ({mainData, loginStatus, setLoginStatus, setToken}) => {
                 <span className='text-sky-600'>Blog</span>
             </div>
             <section className='flex items-center gap-x-1 md:gap-x-2 lg:gap-x-3'>
-                <p className='text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>{mainData.user.first_name} {mainData.user.family_name}</p>
+                <p className='text-right text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>{mainData.user.first_name} {mainData.user.family_name}</p>
                 <button onClick={handleLogout} className="text-sky-600 underline font-bold transition-colors hover:text-sky-400 cursor-pointer text-xs lg:text-sm">LOG OUT</button>
             </section>
         </header>
