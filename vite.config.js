@@ -14,7 +14,7 @@ export default defineConfig({
     },
     server: {
       proxy: {
-        "/techy-blog/api": "https://blog-api-server-production-7657.up.railway.app"
+        "/techy-blog/api": "https://blog-api-server-production-0d8e.up.railway.app"
         //"/techy-blog/api": "http://localhost:3000"
       }
     }
