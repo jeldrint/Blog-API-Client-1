@@ -192,8 +192,7 @@ export const fetchUpdatePost = (data, setError, setLoading, setUpdatePostStatus,
     fetchData();
 }
 
-
-export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatus, token) => {
+export const fetchDeletePost = (postId, setError, setLoading, setDeletePostStatus, token) => {
     setLoading(true);
     const fetchData = async () => {
         try{
@@ -207,13 +206,13 @@ export const fetchDeletePost = (postId, setError, setLoading, setUpdatePostStatu
                 },
     
                 body: JSON.stringify({
-                    postId: postId,
+                    postId
                 }),
     
             })
             const response = await res.json();
             //console.log(response)
-            setUpdatePostStatus(response)
+            setDeletePostStatus(response)
 
         }catch(error){
             //console.log(error)
@@ -260,7 +259,6 @@ export const fetchSubmitComment = (commentSubmit, setErrorSubmit, setLoadingSubm
 
 export const fetchDeleteComment = (comment, setError, setLoading, setStatus, token) => {
     setLoading(true);
-    //console.log(comment)
     const fetchData = async () => {
         try{
             const res = await fetch('/techy-blog/api/delete-comment',{
